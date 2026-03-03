@@ -1,0 +1,43 @@
+<form id="inquiry-form" 
+      hx-post="{% url 'contact' %}" 
+      hx-target="#booking-container" 
+      hx-swap="innerHTML"
+      class="space-y-5">
+    {% csrf_token %}
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="space-y-2">
+            <label class="block text-xs font-medium text-gray-400">Full Name</label>
+            {{ form.full_name }}
+            {% if form.full_name.errors %}<p class="text-red-500 text-xs">{{ form.full_name.errors.0 }}</p>{% endif %}
+        </div>
+        <div class="space-y-2">
+            <label class="block text-xs font-medium text-gray-400">Phone Number</label>
+            {{ form.phone_number }}
+            {% if form.phone_number.errors %}<p class="text-red-500 text-xs">{{ form.phone_number.errors.0 }}</p>{% endif %}
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="space-y-2">
+            <label class="block text-xs font-medium text-gray-400">Email Address</label>
+            {{ form.email }}
+            {% if form.email.errors %}<p class="text-red-500 text-xs">{{ form.email.errors.0 }}</p>{% endif %}
+        </div>
+        <div class="space-y-2">
+            <label class="block text-xs font-medium text-gray-400">Service Category</label>
+            {{ form.service_category }}
+        </div>
+    </div>
+
+    <div class="space-y-2">
+        <label class="block text-xs font-medium text-gray-400">Project Message</label>
+        {{ form.message }}
+        {% if form.message.errors %}<p class="text-red-500 text-xs">{{ form.message.errors.0 }}</p>{% endif %}
+    </div>
+
+    <button type="submit" class="w-full bg-[#46B4B1] hover:bg-[#3da3a0] text-white font-bold py-4 rounded-lg transition-all active:scale-95 shadow-lg flex justify-center items-center gap-2">
+        <span class="htmx-indicator hidden animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></span>
+        <span>Send Project Inquiry</span>
+    </button>
+</form>

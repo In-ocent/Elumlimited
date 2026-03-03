@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Document</title>
+</head>
+
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;   /* correct for flex */
+    height: 100vh;
+    width: 100vw;
+}
+
+.container{
+    width: 30rem;
+    height: 300px;
+
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 90vw;
+    max-height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    overflow: auto;
+    resize: both;
+
+    border-radius: 1rem;
+    box-shadow: 0 0 40px red inset;
+}
+
+
+
+/* circle shape*/
+/* .mother{
+    width: 200px;
+    height: 200px;
+    background: #e1a013;
+    clip-path: circle(6rem at top );
+} */
+
+ /* ellipse shap*/
+.mother1{
+    width: 200px;
+    height: 200px;
+    background: #e1a013;
+    clip-path: ellipse(80px 50px at 50% 50% );
+}
+
+/* Inset shape */
+/* .mother{
+    width: 200px;
+    height: 200px;
+    background: #e1a013;
+    clip-path: inset(20px 20px 50px round 200px 0);
+} */
+
+/* .mother{
+    width: 200px;
+    height: 200px;
+    background: #ee05b8;
+    clip-path: inset(20px 20px 50px 20px );
+
+} */
+
+
+/* POLYGON SHAPE */
+/* .mother1{
+    width: 200px;
+    height: 200px;
+    background: #ee05b8;
+} */
+
+/* triangle */
+.triangle{
+        width: 0;
+        height:0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 100px solid  #ff00c3 ;
+}
+.rectangle{
+        width: 150px;
+        height:70px;
+        background: blue;
+        margin-bottom: 3rem;
+}
+.oval{
+        width: 300px;
+        height:200px;
+        background: rgba(255, 60, 0, 0.845);
+        border-radius: 50%;
+        margin-bottom: 3rem;
+}
+
+
+
+</style>
+
+<body>
+    <div class="container">
+        <div class="mother1"></div>
+        
+  
+        <div class="triangle"></div>
+        
+  
+        <div class="rectangle"></div>
+        <div class="oval"></div>
+        
+        
+    </div>
+    
+</body>
+</html>
+
+
+
+
+
+
+        <section class="flex justify-center items-center border border-red-500 absolute ">
+            <div class="flex items-center gap-4 mb-10 ">
+                <span class="w-12 h-1 bg-green-300 rounded-full"></span>
+                <h1 class="">
+                    SERVICES WE DO
+                </h1>
+            </div>
+            <div>
+                <p>Our Featured Services</p>
+            </div>
+        </section>
+
+        absolute 
+                    left-6 md:left-20 
+                    top-1/2 -translate-y-1/2 
+                    z-10
+                    w-[90%] md:w-[50%]
+                    bg-black/80 backdrop-blur-md
+                    border-l-4 border-orange-600
+                    rounded-2xl
+                    shadow-2xl
+                    p-10

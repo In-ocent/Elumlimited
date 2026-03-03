@@ -1,0 +1,13 @@
+<div style="font-family: sans-serif; color: #333;">
+    <h2>Consultation Confirmed!</h2>
+    <p>Hi {{ name }},</p>
+    <p>Your session is scheduled for <strong>{{ date }} at {{ time }}</strong>.</p>
+    <p>We will meet via Google Meet: <a href="{{ meeting_link }}">{{ meeting_link }}</a></p>
+    <hr>
+    <p style="font-size: 0.8em; color: #666;">
+        Need to change your time? 
+        <a href="{{ request.scheme }}://{{ request.get_host }}{% url 'reschedule_booking' token=token %}">
+            Click here to reschedule
+        </a>
+    </p>
+</div>

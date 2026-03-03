@@ -1,0 +1,692 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block style %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'style/index.css' %}">
+    <style>
+        /* The Original High-Impact Fade */
+        .hero-slide {
+            transition: opacity 1.5s ease-in-out;
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        .hidden-slide { opacity: 0; }
+        .active-slide { opacity: 1; }
+    </style>
+{% endblock %}
+
+{% block title %}AYLUM Limited | Global Architectural Glass & Engineering{% endblock %}
+
+{% block content %}
+
+<section class="relative w-full h-screen overflow-hidden">
+
+    <div id="hero-slider" class="absolute inset-0">
+        <img src="{% static 'images/Stercas1.png' %}" class="hero-slide active-slide" id="img-0" alt="Slide 1">
+        <img src="{% static 'images/stercas2.png' %}" class="hero-slide hidden-slide" id="img-1" alt="Slide 2">
+        <img src="{% static 'images/Elum2.png' %}" class="hero-slide hidden-slide" id="img-2" alt="Slide 3">
+    </div>
+
+    <div class="absolute inset-0 bg-black/50 z-10 pointer-events-none"></div>
+
+    <div class="relative z-20 flex items-center justify-center h-full text-center md:pt-20 px-6">
+        <div class="max-w-4xl text-white w-full">
+            
+            <h1 class="text-4xl md:text-7xl font-bold leading-tight drop-shadow-lg uppercase tracking-tight">
+                Global Architectural <br> Glass & Engineering
+            </h1>
+
+            <p class="mt-6 text-lg md:text-xl text-gray-200 drop-shadow-lg max-w-2xl mx-auto font-light">
+                Premium Glass Production, Specialized Aluminium Systems, and Turnkey Structural Solutions for a Worldwide Market.
+            </p>
+
+            <p class="mt-4 text-sm md:text-base text-[#46B4B1] font-bold tracking-[0.2em] relative z-30">
+                ESTABLISHED 2004 • INTERNATIONAL QUALITY STANDARDS
+            </p>
+
+            <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 relative z-[2000]">
+
+    <!-- Primary CTA -->
+    <a href="{% url 'booking_page' %}" 
+       class="relative inline-flex items-center justify-center px-10 py-4 
+              bg-[#46B4B1] text-white font-bold uppercase tracking-wide
+              rounded-xl shadow-2xl transition-all duration-300
+              hover:scale-105 hover:shadow-[0_20px_40px_rgba(70,180,177,0.4)]">
+        Request Inspection
+    </a>
+
+    <!-- Secondary CTA -->
+    <a href="https://wa.me/2348080337605?text=Hello%20AYLUM%20Limited..." 
+       target="_blank"
+       class="inline-flex items-center justify-center px-10 py-4
+              bg-white/10 backdrop-blur-md border border-white/30
+              text-white font-semibold uppercase tracking-wide
+              rounded-xl transition-all duration-300
+              hover:bg-white hover:text-black hover:scale-105">
+        Speak on WhatsApp
+    </a>
+
+</div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-gradient-to-b from-[#46B4B1] to-[#3da3a0]">
+    <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-black text-center md:text-left leading-tight text-5xl md:text-7xl font-extrabold ">
+            Why Choose <span class="text-white underline underline-offset-8">AYLUM</span> Limited
+        </h2>
+
+        <div class="mt-14 max-w-4xl mx-auto text-center">
+            <p class="text-black font-semibold text-xl md:text-2xl leading-relaxed">
+                From Bespoke Manufacturing to Global Turnkey Installation.
+            </p>
+
+            <p class="mt-6 text-black/90 text-lg md:text-xl leading-relaxed">
+                Since our inception in <span class="font-bold">2004</span>, AYLUM Limited has redefined the standards of 
+                architectural glazing and structural engineering. With over <span id="dynamic-years" class="font-bold text-white"></span> 
+                years of expertise, we offer the manufacturing precision and logistical efficiency required to deliver 
+                sophisticated glass and aluminium solutions for iconic projects worldwide.
+            </p>
+
+            <div class="mt-10 flex flex-wrap justify-center gap-4 text-sm font-bold uppercase tracking-widest text-white">
+                <span class="bg-black/20 px-4 py-2 rounded-full border border-white/30">Architectural Glass</span>
+                <span class="bg-black/20 px-4 py-2 rounded-full border border-white/30">Aluminium Systems</span>
+                <span class="bg-black/20 px-4 py-2 rounded-full border border-white/30">Structural Glazing</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Experience Counter
+    const startYear = 2004;
+    document.getElementById('dynamic-years').innerText = new Date().getFullYear() - startYear;
+
+    // Simple Background Slider
+    let current = 0;
+    const slides = 3;
+
+    function rotateBackground() {
+        document.getElementById(`img-${current}`).classList.replace('active-slide', 'hidden-slide');
+        current = (current + 1) % slides;
+        document.getElementById(`img-${current}`).classList.replace('hidden-slide', 'active-slide');
+    }
+
+    setInterval(rotateBackground, 5000);
+</script>
+
+{% include "CoreApp/future_project.html" %}
+{% include "CoreApp/about.html" %}
+{% include "projects/project_list.html" with projects=projects %}
+{% include "CoreApp/Services.html" with service=service %}
+{% include "CoreApp/testimonias.html" with testimonials=testimonials %}
+
+{% endblock %}
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+
+{% block style %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'style/index.css' %}">
+    <style>
+        /* Corporate Image Slider - Structured & Steady */
+        .slide-container {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        /* Corporate Typography: Clean, Professional, Bold */
+        .corp-heading {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        /* Smooth reveal for professional entrance */
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-corp {
+            opacity: 0;
+            animation: slideIn 0.8s ease-out forwards;
+        }
+
+        /* Structured Card Layout */
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #46B4B1;
+            transition: background 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Corporate Breadcrumb/Tag */
+        .corp-tag {
+            background: rgba(70, 180, 177, 0.15);
+            color: #46B4B1;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 4px;
+        }
+    </style>
+{% endblock %}
+
+{% block title %}AYLUM Limited | Engineering, Glazing & Infrastructure Solutions{% endblock %}
+
+{% block content %}
+
+<section class="relative w-full h-[90vh] overflow-hidden bg-[#0a0f12]">
+
+    <div class="slide-container">
+        <img src="{% static 'images/Stercas1.png' %}" class="slide active" alt="Structural Engineering">
+        <img src="{% static 'images/Elum2.png' %}" class="slide" alt="Aluminium Systems">
+        <img src="{% static 'images/stercas2.png' %}" class="slide" alt="Infrastructure Development">
+    </div>
+
+    <div class="absolute inset-0 bg-slate-900/60 z-10"></div>
+
+    <div class="relative z-20 flex flex-col justify-center h-full max-w-7xl mx-auto px-6">
+        <div class="max-w-3xl text-white">
+            
+            <div class="animate-corp" style="animation-delay: 0.2s;">
+                <span class="corp-tag">Global Operations Since 2004</span>
+                <h1 class="corp-heading text-4xl md:text-7xl mt-6 mb-8 uppercase">
+                    Advanced Engineering <br> <span class="text-[#46B4B1]">& Glazing Solutions</span>
+                </h1>
+            </div>
+
+            <div class="animate-corp" style="animation-delay: 0.4s;">
+                <p class="text-lg md:text-xl text-slate-200 mb-10 font-normal leading-relaxed border-l-2 border-white/20 pl-6">
+                    Delivering high-performance architectural glass and structural aluminium systems to the international construction sector with ISO-standard precision.
+                </p>
+            </div>
+
+            <div class="flex flex-wrap gap-4 animate-corp" style="animation-delay: 0.6s;">
+                <a href="{% url 'booking_page' %}" 
+                   class="bg-[#46B4B1] hover:bg-[#399391] transition-all px-8 py-4 rounded-md font-bold text-white uppercase text-xs tracking-wider">
+                    Request Technical Specs
+                </a>
+                <a href="#about-section" 
+                   class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 px-8 py-4 rounded-md font-bold text-white uppercase text-xs tracking-wider">
+                    Corporate Profile
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 w-full h-1 bg-white/10 z-30">
+        <div id="progress-bar" class="h-full bg-[#46B4B1] w-0"></div>
+    </div>
+</section>
+
+<section id="about-section" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-12 gap-12 items-start">
+            
+            <div class="lg:col-span-5">
+                <h2 class="text-slate-900 text-4xl md:text-5xl font-extrabold uppercase tracking-tight mb-6">
+                    Engineering <br> Integrity.
+                </h2>
+                <p class="text-slate-600 text-lg leading-relaxed mb-8">
+                    Since <span class="font-bold text-slate-900">2004</span>, AYLUM Limited has specialized in the technical execution of complex architectural projects. Our methodology combines advanced manufacturing with logistical mastery.
+                </p>
+                <div class="flex items-center gap-4 text-[#46B4B1]">
+                    <span class="text-5xl font-black"><span id="dynamic-years"></span>+</span>
+                    <span class="text-sm font-bold uppercase tracking-tighter text-slate-500">Years of <br> Industry Experience</span>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 grid md:grid-cols-2 gap-4">
+                <div class="stat-card p-8 bg-slate-50 border-l-4 border-[#46B4B1]">
+                    <h4 class="font-bold text-slate-900 uppercase text-sm mb-2">Manufacturing</h4>
+                    <p class="text-slate-500 text-sm">Automated production lines for tempered, laminated, and specialized glazing.</p>
+                </div>
+                <div class="stat-card p-8 bg-slate-50 border-l-4 border-[#46B4B1]">
+                    <h4 class="font-bold text-slate-900 uppercase text-sm mb-2">Supply Chain</h4>
+                    <p class="text-slate-500 text-sm">Efficient global procurement and turnkey installation logistics.</p>
+                </div>
+                <div class="stat-card p-8 bg-slate-50 border-l-4 border-[#46B4B1]">
+                    <h4 class="font-bold text-slate-900 uppercase text-sm mb-2">Consultancy</h4>
+                    <p class="text-slate-500 text-sm">Structural engineering design and technical feasibility assessments.</p>
+                </div>
+                <div class="stat-card p-8 bg-slate-50 border-l-4 border-[#46B4B1]">
+                    <h4 class="font-bold text-slate-900 uppercase text-sm mb-2">Compliance</h4>
+                    <p class="text-slate-500 text-sm">Adhering to international safety and quality building standards.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    // Corporate Slider Logic
+    const slides = document.querySelectorAll('.slide');
+    const bar = document.getElementById('progress-bar');
+    let current = 0;
+    const interval = 5000;
+
+    function moveSlider() {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+        
+        bar.style.transition = 'none';
+        bar.style.width = '0%';
+        setTimeout(() => {
+            bar.style.transition = `width ${interval}ms linear`;
+            bar.style.width = '100%';
+        }, 50);
+    }
+
+    setInterval(moveSlider, interval);
+    bar.style.transition = `width ${interval}ms linear`;
+    bar.style.width = '100%';
+
+    // Experience Counter
+    const startYear = 2004;
+    document.getElementById('dynamic-years').innerText = new Date().getFullYear() - startYear;
+</script>
+
+    {% include "CoreApp/future_project.html" %}
+    {% include "CoreApp/about.html" %}
+    {% include "projects/project_list.html" with projects=projects %}
+    {% include "CoreApp/Services.html" with service=service %}
+    {% include "CoreApp/testimonias.html" with testimonials=testimonials %}
+
+{% endblock %} {% endcomment %}
+
+
+{% comment %} 
+{% extends "base.html" %}
+{% load static %}
+
+{% block style %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'style/index.css' %}">
+    <style>
+        /* Premium Typography Contrast */
+        .hero-title {
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 0.9;
+        }
+
+        /* Subtle Text Reveal Animation */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); filter: blur(10px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+
+        .animate-reveal {
+            animation: fadeUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        /* Luxury Glassmorphism for the Tags */
+        .glass-tag {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .glass-tag:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid #46B4B1;
+            color: #46B4B1;
+        }
+
+        /* Smooth Scroll Behavior */
+        html { scroll-behavior: smooth; }
+
+        /* Custom Button Glow */
+        .btn-premium {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        .btn-premium:hover {
+            box-shadow: 0 0 25px rgba(70, 180, 177, 0.4);
+        }
+    </style>
+{% endblock %}
+
+{% block title %}AYLUM | International Architectural Glazing & Engineering{% endblock %}
+
+{% block content %}
+
+<section class="relative w-full h-screen overflow-hidden bg-black">
+
+    <video 
+        class="absolute top-0 left-0 w-full h-full object-cover pointer-events-none scale-105"
+        autoplay muted loop playsinline
+        poster="{% static 'images/Stercas1.png' %}"
+    >
+        <source src="https://res.cloudinary.com/duix8w6pl/video/upload/v1771888335/272519_small_jnfi2n.mp4" type="video/mp4">
+    </video>
+
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70 z-0"></div>
+
+    <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+        <div class="max-w-5xl text-white">
+
+            <div class="animate-reveal" style="animation-delay: 0.2s;">
+                <p class="mb-6 text-[#46B4B1] font-black tracking-[0.5em] uppercase text-xs md:text-sm">
+                    Established 2004 • Global Engineering
+                </p>
+                <h1 class="hero-title text-5xl md:text-9xl uppercase mb-8">
+                    Architectural <br> <span class="text-transparent" style="-webkit-text-stroke: 1px white;">Mastery</span>
+                </h1>
+            </div>
+
+            <div class="animate-reveal" style="animation-delay: 0.5s;">
+                <p class="mt-6 text-lg md:text-2xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
+                    Engineering sophisticated glass and aluminium solutions for the world’s most iconic structural projects.
+                </p>
+            </div>
+
+            <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 animate-reveal" style="animation-delay: 0.8s;">
+                <a href="{% url 'booking_page' %}" 
+                   class="btn-premium bg-[#46B4B1] px-10 py-4 rounded-full font-bold text-white uppercase tracking-widest text-xs">
+                    Start a Project
+                </a>
+                <a href="https://wa.me/2348080337605" 
+                   class="btn-premium bg-white/10 backdrop-blur-md border border-white/20 px-10 py-4 rounded-full font-bold text-white uppercase tracking-widest text-xs hover:bg-white hover:text-black">
+                    Consultation
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+            <div class="w-px h-12 bg-gradient-to-b from-[#46B4B1] to-transparent"></div>
+        </div>
+    </div>
+</section>
+
+<section class="py-32 bg-[#0a0a0a] text-white">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="grid lg:grid-cols-2 gap-20 items-center">
+            <div class="space-y-8">
+                <h2 class="hero-title text-6xl md:text-8xl uppercase leading-none">
+                    Why <br> <span class="text-[#46B4B1]">Aylum</span>
+                </h2>
+                <div class="w-20 h-1 bg-[#46B4B1]"></div>
+                <p class="text-xl md:text-2xl text-gray-400 font-light leading-relaxed">
+                    With over <span id="dynamic-years" class="text-white font-bold"></span> years of industry mastery, we possess the manufacturing precision required for high-specification global projects.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="glass-tag p-10 rounded-3xl">
+                    <h3 class="text-[#46B4B1] font-black mb-4 uppercase tracking-widest text-sm">Precision</h3>
+                    <p class="text-gray-400">Bespoke manufacturing and international quality standards.</p>
+                </div>
+                <div class="glass-tag p-10 rounded-3xl">
+                    <h3 class="text-[#46B4B1] font-black mb-4 uppercase tracking-widest text-sm">Global</h3>
+                    <p class="text-gray-400">Turnkey logistical efficiency across five continents.</p>
+                </div>
+                <div class="glass-tag p-10 rounded-3xl md:col-span-2">
+                    <h3 class="text-[#46B4B1] font-black mb-4 uppercase tracking-widest text-sm">Our Focus</h3>
+                    <div class="flex flex-wrap gap-4 mt-6">
+                        <span class="text-xs font-bold border border-white/20 px-4 py-2 rounded-full">Structural Glazing</span>
+                        <span class="text-xs font-bold border border-white/20 px-4 py-2 rounded-full">Aluminium Systems</span>
+                        <span class="text-xs font-bold border border-white/20 px-4 py-2 rounded-full">Engineering Consultancy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const startYear = 2004;
+    document.getElementById('dynamic-years').innerText = new Date().getFullYear() - startYear;
+</script>
+
+    {% include "CoreApp/future_project.html" %}
+    {% include "CoreApp/about.html" %}
+    {% include "projects/project_list.html" with projects=projects %}
+    {% include "CoreApp/Services.html" with service=service %}
+    {% include "CoreApp/testimonias.html" with testimonials=testimonials %}
+
+{% endblock %} {% endcomment %}
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+
+{% block style %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'style/index.css' %}">
+{% endblock %}
+
+{% block title %}AYLUM Limited | Global Architectural Glass & Engineering{% endblock %}
+
+{% block content %}
+
+<section class="relative w-full h-screen overflow-hidden">
+
+    <video 
+        class="absolute top-0 left-0 w-full h-full object-cover pointer-events-none"
+        autoplay 
+        muted 
+        loop 
+        playsinline
+        poster="{% static 'images/Stercas1.png' %}"
+    >
+        <source src="https://res.cloudinary.com/duix8w6pl/video/upload/v1771888335/272519_small_jnfi2n.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="absolute inset-0 bg-black/50 z-0"></div>
+
+    <div class="relative z-10 flex items-center justify-center h-full text-center md:pt-20 px-6">
+        <div class="max-w-4xl text-white">
+
+            <h1 class="text-4xl md:text-7xl font-bold leading-tight drop-shadow-lg uppercase tracking-tight">
+                Global Architectural <br> Glass & Engineering
+            </h1>
+
+            <p class="mt-6 text-lg md:text-xl text-gray-200 drop-shadow-lg max-w-2xl mx-auto font-light">
+                Premium Glass Production, Specialized Aluminium Systems, and Turnkey Structural Solutions for a Worldwide Market.
+            </p>
+
+            <p class="mt-4 text-sm md:text-base text-[#46B4B1] font-bold tracking-[0.2em] uppercase">
+                ESTABLISHED 2004 • INTERNATIONAL QUALITY STANDARDS
+            </p>
+
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="{% url 'booking_page' %}" 
+                   class="bg-[#46B4B1] hover:bg-[#3da3a0] transition-all px-8 py-3 rounded-lg font-semibold text-white shadow-xl hover:scale-105">
+                    Book Inspection
+                </a>
+                <a href="https://wa.me/2348080337605?text=Hello%20AYLUM%20Limited..." 
+                   class="bg-white text-black hover:bg-gray-200 transition-all px-8 py-3 rounded-lg font-semibold shadow-xl hover:scale-105">
+                    Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="py-24 bg-gradient-to-b from-[#46B4B1] to-[#3da3a0]">
+    <div class="max-w-6xl mx-auto px-6">
+
+        <h2 class="text-black text-center md:text-left leading-tight text-5xl md:text-7xl font-extrabold ">
+            Why Choose 
+            <span class="text-white underline underline-offset-8">
+                AYLUM
+            </span> 
+            Limited
+        </h2>
+
+        <div class="mt-14 max-w-4xl mx-auto text-center">
+
+            <p class="text-black font-semibold text-xl md:text-2xl leading-relaxed">
+                From Bespoke Manufacturing to Global Turnkey Installation.
+            </p>
+
+            <p class="mt-6 text-black/90 text-lg md:text-xl leading-relaxed">
+                Since our inception in <span class="font-bold">2004</span>, AYLUM Limited has redefined the standards of architectural glazing and structural engineering. With over <span id="dynamic-years" class="font-bold text-white"></span> years of industry mastery, we offer the manufacturing precision and logistical efficiency required to deliver sophisticated glass and aluminium solutions for iconic projects worldwide.
+            </p>
+
+            <div class="mt-10 flex flex-wrap justify-center gap-4 text-sm font-bold uppercase tracking-widest text-white">
+                <span class="bg-black/20 px-4 py-2 rounded-full border border-white/30">Architectural Glass</span>
+                <span class="bg-black/20 px-4 py-2 rounded-full border border-white/30">Aluminium Systems</span>
+                <span class="bg-black/20 px-4 py-2 rounded-full border border-white/30">Structural Glazing</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    // Counter for Experience
+    const startYear = 2004;
+    const currentYear = new Date().getFullYear();
+    document.getElementById('dynamic-years').innerText = (currentYear - startYear);
+</script>
+
+    {% include "CoreApp/future_project.html" %}
+    {% include "CoreApp/about.html" %}
+    {% include "projects/project_list.html" with projects=projects %}
+    {% include "CoreApp/Services.html" with service=service %}
+    {% include "CoreApp/testimonias.html" with testimonials=testimonials %}
+
+{% endblock %} {% endcomment %}
+
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+
+{% block style %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'style/index.css' %}">
+{% endblock %}
+
+{% block title %}AYLUM Limited | Global Architectural Glass & Aluminium Engineering{% endblock %}
+
+{% block content %}
+
+<section class="relative w-full h-screen overflow-hidden">
+
+    <video 
+        class="absolute top-0 left-0 w-full h-full object-cover pointer-events-none"
+        autoplay muted loop playsinline
+    >
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-architecture-with-glass-facade-41716-large.mp4" type="video/mp4">
+    </video>
+
+    <div class="absolute inset-0 bg-black/50"></div>
+
+    <div class="relative z-10 flex items-center justify-center h-full text-center md:pt-20 px-6">
+        <div class="max-w-4xl text-white">
+
+            <h1 class="text-4xl md:text-7xl font-bold leading-tight drop-shadow-lg uppercase tracking-tight">
+                Global Architectural <br> Glass & Engineering
+            </h1>
+
+            <p class="mt-6 text-lg md:text-2xl text-gray-200 drop-shadow-lg max-w-3xl mx-auto font-light leading-relaxed">
+                Specialized Glass Production, Premium Aluminium Systems, and Structural Engineering Solutions for the International Market.
+            </p>
+
+            <p class="mt-4 text-sm md:text-base text-[#46B4B1] font-bold tracking-[0.3em] uppercase">
+                Established 2004 • International Quality Standards
+            </p>
+
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="{% url 'booking_page' %}" 
+                   class="bg-[#46B4B1] hover:bg-[#3da3a0] transition-all px-10 py-4 rounded-lg font-bold text-white shadow-xl hover:scale-105 uppercase text-sm">
+                    Book Inspection
+                </a>
+                <a href="https://wa.me/2348080337605?text=Hello%20AYLUM%20Limited,%20I%20am%20interested%20in%20a%20glazing%20consultation." 
+                   class="bg-white text-black hover:bg-gray-200 transition-all px-10 py-4 rounded-lg font-bold shadow-xl hover:scale-105 uppercase text-sm">
+                    Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="py-24 bg-gradient-to-b from-[#46B4B1] to-[#3da3a0]">
+    
+    <div class="max-w-6xl mx-auto px-6">
+
+        <h2 class="text-black text-center md:text-left leading-tight text-5xl md:text-8xl font-black uppercase tracking-tighter">
+            Why Choose 
+            <span class="text-white underline underline-offset-8">
+                AYLUM
+            </span> 
+            Limited
+        </h2>
+
+        <div class="mt-14 max-w-4xl mx-auto text-center">
+
+            <p class="text-black font-bold text-xl md:text-3xl leading-relaxed italic">
+                "From Bespoke Manufacturing to Global Turnkey Installation."
+            </p>
+
+            <p class="mt-8 text-black/90 text-lg md:text-xl leading-relaxed">
+                Since our inception in <span class="font-bold">2004</span>, AYLUM Limited has specialized in delivering complex architectural projects from conception to commissioning. With over <span id="dynamic-years" class="font-bold text-white"></span> years of industry mastery, we possess the manufacturing precision and logistical efficiency to handle high-specification glass and aluminium projects worldwide.
+            </p>
+
+            <div class="mt-12 flex flex-wrap justify-center gap-4 text-xs font-black uppercase tracking-widest text-white">
+                <span class="bg-black/20 px-6 py-2 rounded-full border border-white/30 backdrop-blur-sm">Architectural Glass</span>
+                <span class="bg-black/20 px-6 py-2 rounded-full border border-white/30 backdrop-blur-sm">Aluminium Systems</span>
+                <span class="bg-black/20 px-6 py-2 rounded-full border border-white/30 backdrop-blur-sm">Structural Design</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+    const startYear = 2004;
+    const currentYear = new Date().getFullYear();
+    const yearsOfExp = currentYear - startYear;
+    document.getElementById('dynamic-years').innerText = yearsOfExp;
+</script>
+
+    {% include "CoreApp/future_project.html" %}
+    {% include "CoreApp/about.html" %}
+    {% include "projects/project_list.html" with projects=projects %}
+    {% include "CoreApp/Services.html" with service=service %}
+    {% include "CoreApp/testimonias.html" with testimonials=testimonials %}
+
+{% endblock %} {% endcomment %}

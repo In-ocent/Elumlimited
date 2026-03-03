@@ -1,0 +1,32 @@
+<div class="text-center py-12 px-6 fade-me-in">
+    <div class="w-20 h-20 bg-emerald-500/10 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+    </div>
+
+    <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">Inquiry Sent Successfully!</h3>
+    
+    <div class="space-y-4 mb-8">
+        <p class="text-gray-400 max-w-sm mx-auto">
+            Thank you, <span class="text-white font-semibold">{{ inquiry.full_name }}</span>. 
+            We've received your request regarding 
+            <span class="text-[#46B4B1] font-medium">{{ inquiry.get_service_category_display }}</span>.
+        </p>
+        
+        <div class="inline-block p-3 bg-white/5 border border-white/10 rounded-lg">
+            <p class="text-xs text-gray-500 uppercase tracking-widest">Reference ID</p>
+            <p class="text-white font-mono text-sm">#INQ-{{ inquiry.id|stringformat:"04d" }}</p>
+        </div>
+    </div>
+
+    <p class="text-sm text-gray-500 mb-6">
+        Our technical team will review your message and reach out via 
+        <span class="text-gray-300">{{ inquiry.email }}</span> within 24 hours.
+    </p>
+
+    <button onclick="window.location.reload()" 
+            class="px-6 py-2 border border-[#46B4B1] text-[#46B4B1] hover:bg-[#46B4B1] hover:text-white transition-all rounded-full text-xs font-bold uppercase tracking-widest">
+        Back to Contact
+    </button>
+</div>

@@ -1,0 +1,159 @@
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+{% endblock  %}
+
+
+{% block content %}
+<section class="py-24 bg-black min-h-screen text-white">
+    <div class="max-w-3xl mx-auto px-6">
+        <div class="bg-[#111] p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl relative">
+            <a href="{% url 'home' %}" class="absolute top-6 right-8 text-gray-500 hover:text-white hover:bg-white/10 p-2 rounded-full transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </a>
+
+            <h2 class="text-3xl font-bold mb-8">Schedule Your <span class="text-[#46B4B1]">Consultation</span></h2>            
+            
+            <form id="booking-form" class="space-y-6">
+                {% csrf_token %}
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input type="text" id="full_name" placeholder="Full Name" required class="w-full bg-black border border-gray-800 p-4 rounded-xl focus:border-[#46B4B1] outline-none">
+                    <input type="email" id="email" placeholder="Email Address" required class="w-full bg-black border border-gray-800 p-4 rounded-xl focus:border-[#46B4B1] outline-none">
+                </div>
+
+                <div class="grid grid-cols-1 gap-6">
+                    <input type="tel" id="phone_number" placeholder="Phone Number (e.g. +234...)" required class="w-full bg-black border border-gray-800 p-4 rounded-xl focus:border-[#46B4B1] outline-none">
+                </div>
+
+                <select id="service_type" required class="w-full bg-black border border-gray-800 p-4 rounded-xl focus:border-[#46B4B1] outline-none text-gray-400">
+                    <option value="" disabled selected>Select Service</option>
+                    {% for service in services %}
+                        <option value="{{ service.id }}">{{ service.name }}</option>
+                    {% endfor %}
+                </select>
+
+                <div>
+                    <label class="block text-gray-500 text-sm mb-2">Pick a Date</label>
+                    <input type="date" id="booking_date" min="{{ today|date:'Y-m-d' }}" class="w-full bg-black border border-gray-800 p-4 rounded-xl focus:border-[#46B4B1] outline-none">
+                </div>
+
+                <div id="slot-section" class="hidden">
+                    <label class="block text-gray-500 text-sm mb-2">Available Slots</label>
+                    <div id="slots_container" class="grid grid-cols-3 gap-3"></div>
+                </div>
+
+                <input type="hidden" id="selected_slot">
+                <button type="button" id="confirm_btn" disabled class="w-full mt-8 bg-[#46B4B1] py-4 rounded-xl font-bold opacity-50 cursor-not-allowed transition-all hover:bg-[#3da3a0]">Confirm Appointment</button>
+            </form>
+
+            <div id="success-ui" class="hidden text-center py-10">
+                <h3 class="text-2xl font-bold text-emerald-400">Success!</h3>
+                <p class="text-gray-400 mt-2">Check your inbox for the confirmation email.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block javascript %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dateInput = document.getElementById('booking_date');
+        
+        // --- SAFETY GUARD ---
+        // If the date input isn't on this page, stop the script so it doesn't crash the site.
+        if (!dateInput) {
+            console.log("Not on booking page, skipping booking script.");
+            return; 
+        }
+
+        const slotsContainer = document.getElementById('slots_container');
+        const slotSection = document.getElementById('slot-section');
+        const confirmBtn = document.getElementById('confirm_btn');
+        const slotHidden = document.getElementById('selected_slot');
+
+        // 1. Fetch Slots when date changes
+        dateInput.addEventListener('change', function() {
+            slotSection.classList.remove('hidden');
+            slotsContainer.innerHTML = '<p class="col-span-3 text-[#46B4B1] animate-pulse text-center">Checking availability...</p>';
+            
+            fetch(`/get-slots/?date=${this.value}`)
+                .then(res => res.json())
+                .then(data => {
+                    slotsContainer.innerHTML = '';
+                    if (data.slots.length === 0) {
+                        slotsContainer.innerHTML = '<p class="col-span-3 text-red-500 text-center">No slots available for this date.</p>';
+                        return;
+                    }
+                    data.slots.forEach(slot => {
+                        const btn = document.createElement('button');
+                        btn.type = "button";
+                        btn.innerText = slot;
+                        btn.className = "py-3 border border-gray-800 rounded-lg hover:border-[#46B4B1] transition-all text-sm";
+                        btn.onclick = () => {
+                            document.querySelectorAll('#slots_container button').forEach(b => b.classList.remove('bg-[#46B4B1]', 'border-[#46B4B1]'));
+                            btn.classList.add('bg-[#46B4B1]', 'border-[#46B4B1]');
+                            slotHidden.value = slot;
+                            confirmBtn.disabled = false;
+                            confirmBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                        };
+                        slotsContainer.appendChild(btn);
+                    });
+                })
+                .catch(err => {
+                    console.error("Fetch error:", err);
+                    slotsContainer.innerHTML = '<p class="col-span-3 text-red-500">Error loading slots.</p>';
+                });
+        });
+
+        // 2. Submit Booking
+                // Inside your existing script block...
+        confirmBtn.onclick = function() {
+            const phoneField = document.getElementById('phone_number');
+            if (!phoneField || !phoneField.value) {
+                alert("Please enter a phone number");
+                return;
+            }
+
+            this.innerText = "Processing...";
+            this.disabled = true;
+
+            const formData = new FormData();
+            formData.append('full_name', document.getElementById('full_name').value);
+            formData.append('email', document.getElementById('email').value);
+            formData.append('phone_number', phoneField.value);
+            formData.append('service_type', document.getElementById('service_type').value);
+            formData.append('date', dateInput.value);
+            formData.append('slot', slotHidden.value);
+            formData.append('csrfmiddlewaretoken', document.querySelector('[name=csrfmiddlewaretoken]').value);
+
+            fetch('/book-session/', { method: 'POST', body: formData })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.status === 'success') {
+                        document.getElementById('booking-form').classList.add('hidden');
+                        document.getElementById('success-ui').classList.remove('hidden');
+                    } else {
+                        alert("Error: " + data.message);
+                        this.innerText = "Confirm Appointment";
+                        this.disabled = false;
+                    }
+                })
+                .catch(err => {
+                    console.error("Submission failed:", err);
+                    alert("Network error. Check console.");
+                });
+        };
+    });
+</script> 
+{% endblock  %}
+
+
+
+
+

@@ -1,0 +1,71 @@
+/* 🔺 Triangle */
+#logo-wrapper1{
+    display:flex;
+    align-items:flex-end; /* aligns bottom edges */
+    gap:0; /* remove space between them */
+}
+
+#triangle1{
+    width:60px;
+    height:40px;
+    background:black;
+    /* background:#0f93ff; */
+
+    clip-path: polygon(
+        50% 0%,   /* top center */
+        0% 100%,  /* bottom left */
+        100% 100% /* bottom right */
+    );
+}
+
+
+/* 🔷 Right Shape */
+
+#shape1 {
+    margin-left: -25px;
+}
+
+#shape1{
+    width:60px;
+    height:40px;
+    background:#46b4b1;
+
+    clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% 100%,
+        50% 100%
+    );
+
+    position:relative;
+}
+
+
+/* ✨ Light stripes */
+#shape1::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        120deg,
+        transparent 45%,
+        rgba(255,255,255,0.4) 48%,
+        rgba(255,255,255,0.4) 52%,
+        transparent 55%
+    );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

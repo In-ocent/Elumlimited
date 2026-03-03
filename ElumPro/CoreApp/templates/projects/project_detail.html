@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Top Spacer (if navbar is fixed) -->
+<div class="w-full h-20 bg-black"></div>
+
+<section class="bg-white text-black py-16">
+    <div class="max-w-6xl mx-auto px-6 space-y-20">
+
+        <!-- ================= MEDIA ================= -->
+        <div class="relative w-full h-[75vh] overflow-hidden rounded-3xl shadow-2xl group">
+            
+            {% if project.featured_video %}
+                <video autoplay muted loop playsinline
+                       class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                    <source src="{{ project.featured_video.url }}" type="video/mp4">
+                </video>
+            {% elif project.featured_image %}
+                <img src="{{ project.featured_image.url }}"
+                     class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+            {% else %}
+                <img src="{% static 'defoult1.webp' %}"
+                     class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+            {% endif %}
+
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
+        </div>
+
+
+        <!-- ================= TITLE + META ================= -->
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+
+            <!-- Title -->
+            <div>
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 leading-tight">
+                    {{ project.title }}
+                </h1>
+
+                <div class="w-20 h-1 bg-[#46B4B1] mt-6 rounded-full"></div>
+            </div>
+
+            <!-- Meta Info -->
+            <div class="space-y-4 text-sm uppercase tracking-widest text-gray-500">
+
+                <div class="flex justify-between border-b border-gray-200 pb-3">
+                    <span>Category</span>
+                    <span class="text-[#46B4B1] font-medium">
+                        {{ project.category }}
+                    </span>
+                </div>
+
+                <div class="flex justify-between border-b border-gray-200 pb-3">
+                    <span>Status</span>
+                    <span class="text-[#46B4B1] font-medium">
+                        {{ project.status }}
+                    </span>
+                </div>
+
+                {% if project.location %}
+                <div class="flex justify-between border-b border-gray-200 pb-3">
+                    <span class="mr-5">Location</span>
+                    <span class="text-[#46B4B1] font-medium">
+                        {{ project.location }}
+                    </span>
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+
+
+        <!-- ================= DESCRIPTION ================= -->
+        <div class="max-w-3xl text-lg leading-relaxed text-gray-600">
+            <p class="border-l-4 border-[#46B4B1] pl-6">
+                {{ project.description }}
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= CTA SECTION ================= -->
+<section class="mt-32 py-24 bg-black text-white relative overflow-hidden">
+
+    <div class="max-w-4xl mx-auto px-6 text-center space-y-8 relative z-10">
+
+        <h2 class="text-3xl md:text-4xl font-semibold">
+            Interested in a Similar Project?
+        </h2>
+
+        <p class="text-gray-300 text-lg">
+            Let’s bring your vision to life with precision, quality craftsmanship, and attention to detail.
+        </p>
+
+        <a href="{% url 'contact' %}"
+           class="inline-block bg-[#46B4B1] text-black font-medium px-10 py-4 rounded-lg 
+                  hover:bg-white hover:text-black transition-all duration-300 shadow-lg">
+            Request a Consultation
+        </a>
+
+    </div>
+
+    <!-- Subtle Background Accent -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#46B4B1]/20 via-transparent to-transparent"></div>
+
+</section>
+
+{% endblock %}

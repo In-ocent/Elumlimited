@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+    body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#eee;
+}
+
+.logo{
+    display:flex;
+    align-items:flex-end;
+    gap:0;
+}
+
+/* 🔺 Triangle */
+.triangle{
+    width:0;
+    height:0;
+    border-left:100px solid transparent;
+    border-right:100px solid transparent;
+    border-bottom:180px solid #48525a;
+}
+
+/* 🔷 Right Shape */
+.shape{
+    width:180px;
+    height:180px;
+    background:#46b4b1;
+
+    /* diagonal cut */
+    clip-path: polygon(
+        0% 0,
+        100% 0,
+        100% 100%,
+        50% 100%
+    );
+
+    position:relative;
+}
+
+/* ✨ Light stripes */
+.shape::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        120deg,
+        transparent 45%,
+        rgba(255,255,255,0.4) 48%,
+        rgba(255,255,255,0.4) 52%,
+        transparent 55%
+    );
+}
+
+</style>
+<body>
+    <div class="logo">
+    <div class="triangle"></div>
+    <div class="shape"></div>
+</div>
+
+</body>
+</html>

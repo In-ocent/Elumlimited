@@ -135,12 +135,16 @@ USE_TZ = True
 # settings.py
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]
 
-# ADD THIS LINE:
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+# This tells Django to look specifically inside your CoreApp folder
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "CoreApp", "static"),
+]
 
-# Ensure WhiteNoise is handling compression
+# This is where everything will be gathered for Vercel
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+# Keep WhiteNoise active
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Cloudinary Config (Get these from your Cloudinary Dashboard)

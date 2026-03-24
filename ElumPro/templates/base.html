@@ -192,7 +192,7 @@
             <a href="#projects" class="mobile-link">Projects</a>
             <a href="#about" class="mobile-link">About</a>
             <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-            <a href="{% url 'booking_page' %}" class="mobile-link">Contact</a>
+            <a href="{% url 'contact' %}" class="mobile-link">Contact</a>
 
             <a href="{% url 'booking_page' %}"
                 class="bg-[#46B4B1] px-6 py-2
@@ -268,7 +268,7 @@
                         <li><a href="{% url 'home' %}" class="hover:text-[#4ade80] transition-colors">Home</a></li>
                         <li><a href="#service" class="hover:text-[#4ade80] transition-colors">Our Services</a></li>
                         <li><a href="#projects" class="hover:text-[#4ade80] transition-colors">Recent Projects</a></li>
-                        <li><a href="{% url 'contact' %}" class="hover:text-[#4ade80] transition-colors">Company About</a></li>
+                        <li><a href="#about" class="hover:text-[#4ade80] transition-colors">Company About</a></li>
                         <li><a href="#testimonials" class="hover:text-[#4ade80] transition-colors">Testimonials</a></li>
                     </ul>
                 </div>
@@ -307,7 +307,7 @@
                 </div>
             </div>
 
-            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+            <div class="pt-8  border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
                 <p>&copy; <span class="years-rechanges"> 2026</span> AYLUM Limited. All rights reserved.</p>
                     <p>...Your happiness is our priorities through best services</p>
                 <div class="flex gap-6">
@@ -315,6 +315,21 @@
                     <a href="#" class="hover:text-white  text-[#46B4B1]  transition-colors">Terms of Service</a>
                 </div>
             </div>
+            <section class="flex flex-col items-center py-8 border-t border-white/5 bg-black/20 mt-12">
+                <div class="flex items-center gap-3 group">
+                    <a href="https://innocoda.com/" class="relative">
+                        <div class="absolute -inset-1 bg-blue-500 rounded-full blur opacity-0 group-hover:opacity-25 transition duration-500"></div>
+                        <img class="relative w-8 h-8 rounded-full border border-white/10 grayscale group-hover:grayscale-0 transition-all duration-300" 
+                            src="{% static 'images&videos/InnoCoda-Logo.jpg' %}" 
+                            alt="InnoCoda logo">
+                    </a>
+                    
+                    <a href="https://innocoda.com/" 
+                    class="text-xs font-medium tracking-widest uppercase text-gray-500 hover:text-white transition-colors duration-300">
+                    Designed by <span class="text-gray-400">InnoCoda.com</span>
+                    </a>
+                </div>
+            </section>
         </div>
     </footer>
     <footer class="py-9 bg-black text-center">

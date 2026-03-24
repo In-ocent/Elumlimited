@@ -130,22 +130,20 @@ USE_TZ = True
 
 # Where Django LOOKS for your source files during development
 # settings.py
-
 # settings.py
+
 STATIC_URL = '/static/'
 
-#
-
-# Tell Django to check the root static folder AND the app static folder
+# THE SOURCE
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+# THE DESTINATION (Match the folder we just manually made)
+STATIC_ROOT = os.path.join(BASE_DIR, 'DEPLOY_STATIC')
 
-STATIC_ROOT = r'C:\Users\USER\OneDrive\Desktop\Elumlimited\ElumPro\staticfiles'
-# Essential for Tailwind + WhiteNoise
+# This is vital for WhiteNoise to find the manually copied files
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
 # Cloudinary Config (Get these from your Cloudinary Dashboard)
 CLOUDINARY_STORAGE = {

@@ -1,19 +1,14 @@
 #!/bin/bash
 
-echo "BUILD START"
+# Move into the folder where manage.py lives
+cd ElumPro
 
-# 1. Install dependencies
-# Using -m pip is safer on Vercel's Linux environment
+# Install dependencies
 python3.12 -m pip install -r requirements.txt
 
-echo "COLLECTING STATIC FILES..."
-# 2. Collect Static Files
-# This gathers your 19 files for WhiteNoise
+# Collect Static Files
+# This creates the 'staticfiles' folder INSIDE ElumPro
 python3.12 manage.py collectstatic --noinput --clear
 
-echo "RUNNING MIGRATIONS..."
-# 3. Run Migrations
-# This connects to your Supabase DB and updates tables
-python3.12 manage.py migrate --noinput
-
-echo "BUILD END"
+# Move the result back to the root so Vercel can find it
+cp -r staticfiles ../

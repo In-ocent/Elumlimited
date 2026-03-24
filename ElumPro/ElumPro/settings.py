@@ -134,16 +134,15 @@ USE_TZ = True
 # settings.py
 STATIC_URL = '/static/'
 
-# settings.py
+#
 
-# This points to C:\Users\USER\OneDrive\Desktop\Elumlimited\ElumPro\static
+# Tell Django to check the root static folder AND the app static folder
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    os.path.join(BASE_DIR, 'static'),
 ]
 
-# This is where they go for Vercel
-STATIC_ROOT = BASE_DIR / "staticfiles"
 
+STATIC_ROOT = r'C:\Users\USER\OneDrive\Desktop\Elumlimited\ElumPro\staticfiles'
 # Essential for Tailwind + WhiteNoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 

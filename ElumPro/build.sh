@@ -1,14 +1,19 @@
 #!/bin/bash
 
-# Move into the folder where manage.py lives
-cd ElumPro
+echo "--- BUILD START ---"
 
-# Install dependencies
+# 1. Install Python dependencies
+# Using -m pip is the safest way on Vercel
 python3.12 -m pip install -r requirements.txt
 
-# Collect Static Files
-# This creates the 'staticfiles' folder INSIDE ElumPro
+echo "--- COLLECTING STATIC FILES ---"
+# 2. Collect Static Files (This is what fixes your CSS)
+# We use --noinput so it doesn't wait for you to type 'yes'
 python3.12 manage.py collectstatic --noinput --clear
 
-# Move the result back to the root so Vercel can find it
-cp -r staticfiles ../
+echo "--- RUNNING MIGRATIONS ---"
+# 3. Database Migrations
+# Note: If this fails, check your DATABASE_URL port (should be 6543)
+python3.12 manage.py migrate --noinput
+
+echo "--- BUILD END ---"

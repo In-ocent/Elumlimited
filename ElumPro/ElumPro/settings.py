@@ -131,6 +131,7 @@ USE_TZ = True
 # Where Django LOOKS for your source files during development
 # settings.py
 # settings.py
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_URL = '/static/'
 
@@ -142,8 +143,6 @@ STATICFILES_DIRS = [
 # THE DESTINATION (Match the folder we just manually made)
 STATIC_ROOT = os.path.join(BASE_DIR, 'DEPLOY_STATIC')
 
-# This is vital for WhiteNoise to find the manually copied files
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Cloudinary Config (Get these from your Cloudinary Dashboard)
 CLOUDINARY_STORAGE = {

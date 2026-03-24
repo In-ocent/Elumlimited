@@ -1,28 +1,20 @@
+import os
 import dj_database_url
 from pathlib import Path
-import os
 import environ
 
+# 1. Setup environment variables
+env = environ.Env(DEBUG=(bool, False))
 
-env = environ.Env(
-    DEBUG=(bool, False)
-)
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# 2. Define BASE_DIR ONCE (pointing to the folder with manage.py)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
+# 3. Read .env
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
-
 ALLOWED_HOSTS = ["*"]
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -134,18 +126,20 @@ USE_TZ = True
 
 # settings.py
 
+# Static files configuration
 STATIC_URL = '/static/'
 
-# This tells Django to look specifically inside your CoreApp folder
+# Where Django LOOKS for your source files
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "CoreApp", "static"),
+    BASE_DIR / "CoreApp" / "static",
 ]
 
-# This is where everything will be gathered for Vercel
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+# Where Django COPIES files for Vercel (The destination)
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# Keep WhiteNoise active
+# WhiteNoise storage for production
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Cloudinary Config (Get these from your Cloudinary Dashboard)
 CLOUDINARY_STORAGE = {

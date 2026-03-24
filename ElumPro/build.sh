@@ -1,10 +1,19 @@
 #!/bin/bash
 
-# Install dependencies
-pip install -r requirements.txt
+echo "BUILD START"
 
-# Collect Static Files
+# 1. Install dependencies
+# Using -m pip is safer on Vercel's Linux environment
+python3.12 -m pip install -r requirements.txt
+
+echo "COLLECTING STATIC FILES..."
+# 2. Collect Static Files
+# This gathers your 19 files for WhiteNoise
 python3.12 manage.py collectstatic --noinput --clear
 
-# Run Migrations (Optional, but good for database updates)
-python3.12 manage.py migrate
+echo "RUNNING MIGRATIONS..."
+# 3. Run Migrations
+# This connects to your Supabase DB and updates tables
+python3.12 manage.py migrate --noinput
+
+echo "BUILD END"

@@ -128,6 +128,10 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'DEPLOY_STATIC')
 STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
 # Cloudinary Config (Get these from your Cloudinary Dashboard)
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),

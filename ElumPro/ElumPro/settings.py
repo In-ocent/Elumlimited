@@ -124,25 +124,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 
-# settings.py
-
-# settings.py
-
-# Where Django LOOKS for your source files during development
-# settings.py
-# settings.py
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 STATIC_URL = '/static/'
-
-# THE SOURCE
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
-
-# THE DESTINATION (Match the folder we just manually made)
 STATIC_ROOT = os.path.join(BASE_DIR, 'DEPLOY_STATIC')
-
+STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
 
 # Cloudinary Config (Get these from your Cloudinary Dashboard)
 CLOUDINARY_STORAGE = {

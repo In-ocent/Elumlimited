@@ -2,12 +2,15 @@
     "version": 2,
     "builds": [
         {
-            "src": "ElumPro/wsgi.py",
-            "use": "@vercel/python",
+            "src": "build.sh",
+            "use": "@vercel/static-build",
             "config": {
-                "maxLambdaSize": "15mb",
-                "runtime": "python3.12"
+                "distDir": "staticfiles"
             }
+        },
+        {
+            "src": "ElumPro/wsgi.py",
+            "use": "@vercel/python"
         }
     ],
     "routes": [

@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'ElumPro.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         default=os.environ.get('DATABASE_URL'),
-        conn_max_age=600,
+        conn_max_age=0,  # Change this from 600 to 0
         ssl_require=True
     )
 }
@@ -126,18 +126,25 @@ USE_TZ = True
 
 # settings.py
 
-# Static files configuration
+# settings.py
+
+# Where Django LOOKS for your source files during development
+# settings.py
+
+# settings.py
 STATIC_URL = '/static/'
 
-# Where Django LOOKS for your source files
+# settings.py
+
+# This points to C:\Users\USER\OneDrive\Desktop\Elumlimited\ElumPro\static
 STATICFILES_DIRS = [
-    BASE_DIR / "CoreApp" / "static",
+    BASE_DIR / "static",
 ]
 
-# Where Django COPIES files for Vercel (The destination)
+# This is where they go for Vercel
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# WhiteNoise storage for production
+# Essential for Tailwind + WhiteNoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 

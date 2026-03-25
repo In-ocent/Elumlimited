@@ -125,11 +125,13 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+
 # STATIC_ROOT = os.path.join(BASE_DIR, 'DEPLOY_STATIC')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    # Point directly to where you edit your CSS
+    os.path.join(BASE_DIR, 'CoreApp', 'static'),
 ]
 
 # Cloudinary Config (Get these from your Cloudinary Dashboard)

@@ -15,9 +15,11 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
 ALLOWED_HOSTS = ["*"]
+
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',  # Add this at the VERY top
     'cloudinary_storage',
     'django.contrib.sites',
     'cloudinary',
@@ -127,11 +129,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'DEPLOY_STATIC')
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATICFILES_DIRS = [
-    # Point directly to where you edit your CSS
-    os.path.join(BASE_DIR, 'CoreApp', 'static'),
+    BASE_DIR / 'CoreApp' / 'static',
 ]
 
 # Cloudinary Config (Get these from your Cloudinary Dashboard)
@@ -154,6 +155,7 @@ CLOUDINARY_STORAGE = {
 
 # Midia seting
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

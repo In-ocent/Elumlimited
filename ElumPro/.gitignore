@@ -1,30 +1,28 @@
-# Python
+# Python & Virtual Env
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Virtual environment
+*.py[cod]
+*$py.class
+.venv/
 venv/
 env/
 
-# Django stuff
-*.log
+# Django
 db.sqlite3
-media/
-# staticfiles/
-
-# Environment variables
 .env
+*.log
 
-# VS Code
-.vscode/
+# Static & Media
+# We WANT Git to see DEPLOY_STATIC, but NOT the heavy videos inside it
+DEPLOY_STATIC/videos/TVS-NAGAR-RESIDENCE.mp4
+DEPLOY_STATIC/videos/Edge.mp4
 
-# Mac
-.DS_Store
-
-# Media
+# Global Media/Video Ignore (to prevent future 404/rejection errors)
 *.mp4
 *.mov
 *.avi
 media/
+
+# IDEs
+.vscode/
+.idea/
+.DS_Store

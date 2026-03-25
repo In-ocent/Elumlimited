@@ -9,7 +9,7 @@
     "routes": [
         {
             "src": "/static/(.*)",
-            "dest": "/DEPLOY_STATIC/$1"
+            "dest": "/static/$1"
         },
         {
             "src": "/(.*)",

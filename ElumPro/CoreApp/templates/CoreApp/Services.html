@@ -1,11 +1,12 @@
 {% load static %}
 {% block content %}
+<link rel="stylesheet" href="{% static 'style/servise.css' %}">
 
-<section id="service" class="py-20 bg-black text-white">
+<section id="service" class="reveal py-20 bg-black text-white">
   <div class="max-w-7xl mx-auto px-6">
 
-    <div class="text-center mb-16">
-      <span class="text-[#46B4B1] font-bold tracking-widest uppercase text-sm">Our Capabilities</span>
+    <div class="reveal text-center mb-16">
+      <span class="reveal text-[#46B4B1] font-bold tracking-widest uppercase text-sm">Our Capabilities</span>
       <h2 class="text-3xl md:text-5xl font-extrabold mt-2 mb-4">
         Specialized Engineering & Fabrication
       </h2>
@@ -15,97 +16,97 @@
       </p>
     </div>
 
-    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <div class="reveal grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-      <div class="group bg-[#1f2937] p-8 rounded-2xl border border-gray-700 hover:border-[#46B4B1] transition-all duration-300 shadow-xl">
-        <div class="mb-6 group-hover:text-[#46B4B1] transition-transform duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-          </svg>
+        <div class="reveal group bg-[#1f2937] p-8 rounded-2xl border border-gray-700 hover:border-[#46B4B1] transition-all duration-300 shadow-xl">
+            <div class="mb-6 group-hover:text-[#46B4B1] transition-transform duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Project Consultancy</h3>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+                We offer technical feasibility studies and structural design mapping, ensuring every architectural glass and metal interface meets global safety and stress-load standards.
+            </p>
+            <button class="text-[#46B4B1] font-semibold flex items-center gap-2 group-hover:underline">
+                Technical Specs <span>&rarr;</span>
+            </button>
         </div>
-        <h3 class="text-2xl font-bold mb-3">Project Consultancy</h3>
-        <p class="text-gray-400 mb-6 leading-relaxed">
-          We offer technical feasibility studies and structural design mapping, ensuring every architectural glass and metal interface meets global safety and stress-load standards.
-        </p>
-        <button class="text-[#46B4B1] font-semibold flex items-center gap-2 group-hover:underline">
-          Technical Specs <span>&rarr;</span>
-        </button>
-      </div>
 
-      <div class="group bg-[#1f2937] p-8 rounded-2xl border border-gray-700 hover:border-[#46B4B1] transition-all duration-300 shadow-xl">
-        <div class="mb-6 group-hover:text-[#46B4B1] transition-transform duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2zM12 7h.01m-4 4h8" />
-          </svg>
+        <div class="reveal group bg-[#1f2937] p-8 rounded-2xl border border-gray-700 hover:border-[#46B4B1] transition-all duration-300 shadow-xl">
+            <div class="mb-6 group-hover:text-[#46B4B1] transition-transform duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2zM12 7h.01m-4 4h8" />
+                </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Telecom Infrastructure</h3>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+                Comprehensive deployment of telecommunication infrastructure, managing everything from tower foundation engineering to site commissioning and logistical facility management.
+            </p>
+            <button class="text-[#46B4B1] font-semibold flex items-center gap-2 group-hover:underline">
+                View Lifecycle <span>&rarr;</span>
+            </button>
         </div>
-        <h3 class="text-2xl font-bold mb-3">Telecom Infrastructure</h3>
-        <p class="text-gray-400 mb-6 leading-relaxed">
-          Comprehensive deployment of telecommunication infrastructure, managing everything from tower foundation engineering to site commissioning and logistical facility management.
-        </p>
-        <button class="text-[#46B4B1] font-semibold flex items-center gap-2 group-hover:underline">
-          View Lifecycle <span>&rarr;</span>
-        </button>
-      </div>
 
-      <div class="group bg-[#1f2937] p-8 rounded-2xl border border-gray-700 hover:border-[#46B4B1] transition-all duration-300 shadow-xl">
-        <div class="mb-6 group-hover:text-[#46B4B1] transition-transform duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-          </svg>
+        <div class="reveal group bg-[#1f2937] p-8 rounded-2xl border border-gray-700 hover:border-[#46B4B1] transition-all duration-300 shadow-xl">
+            <div class="mb-6 group-hover:text-[#46B4B1] transition-transform duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Civil Construction</h3>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+                Expert execution of highway engineering and civil works. We deliver robust physical infrastructure through precision grading, drainage systems, and structural concrete work.
+            </p>
+            <button class="text-[#46B4B1] font-semibold flex items-center gap-2 group-hover:underline">
+                Our Portfolio <span>&rarr;</span>
+            </button>
         </div>
-        <h3 class="text-2xl font-bold mb-3">Civil Construction</h3>
-        <p class="text-gray-400 mb-6 leading-relaxed">
-          Expert execution of highway engineering and civil works. We deliver robust physical infrastructure through precision grading, drainage systems, and structural concrete work.
-        </p>
-        <button class="text-[#46B4B1] font-semibold flex items-center gap-2 group-hover:underline">
-          Our Portfolio <span>&rarr;</span>
-        </button>
-      </div>
 
-      <div class="group bg-[#1f2937] p-8 rounded-2xl border border-gray-700 hover:border-[#46B4B1] transition-all duration-300 shadow-xl">
-        <div class="mb-6 group-hover:text-[#46B4B1] transition-transform duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-          </svg>
+        <div class="reveal group bg-[#1f2937] p-8 rounded-2xl border border-gray-700 hover:border-[#46B4B1] transition-all duration-300 shadow-xl">
+            <div class="mb-6 group-hover:text-[#46B4B1] transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+            </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Architectural Glazing</h3>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+                Specialized installation of tempered and laminated safety glass. We focus on enhancing structural aesthetics while ensuring maximum thermal performance and impact resistance.
+            </p>
+            <button class="text-[#46B4B1] font-semibold flex items-center gap-2 group-hover:underline">
+                Learn More <span>&rarr;</span>
+            </button>
         </div>
-        <h3 class="text-2xl font-bold mb-3">Architectural Glazing</h3>
-        <p class="text-gray-400 mb-6 leading-relaxed">
-          Specialized installation of tempered and laminated safety glass. We focus on enhancing structural aesthetics while ensuring maximum thermal performance and impact resistance.
-        </p>
-        <button class="text-[#46B4B1] font-semibold flex items-center gap-2 group-hover:underline">
-          Learn More <span>&rarr;</span>
-        </button>
-      </div>
 
-      <div class="group bg-[#1f2937] p-8 rounded-2xl border border-gray-700 hover:border-[#46B4B1] transition-all duration-300 shadow-xl">
-        <div class="mb-6 group-hover:text-[#46B4B1] transition-transform duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
-          </svg>
+        <div class="reveal group bg-[#1f2937] p-8 rounded-2xl border border-gray-700 hover:border-[#46B4B1] transition-all duration-300 shadow-xl">
+            <div class="mb-6 group-hover:text-[#46B4B1] transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+            </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Aluminum Fabrication</h3>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+                Precision-engineered aluminum profiles for doors, windows, and structural facades. Our fabrication process emphasizes longevity, corrosion resistance, and sleek finishes.
+            </p>
+            <button class="text-[#46B4B1] font-semibold flex items-center gap-2 group-hover:underline">
+                Request Quote <span>&rarr;</span>
+            </button>
         </div>
-        <h3 class="text-2xl font-bold mb-3">Aluminum Fabrication</h3>
-        <p class="text-gray-400 mb-6 leading-relaxed">
-          Precision-engineered aluminum profiles for doors, windows, and structural facades. Our fabrication process emphasizes longevity, corrosion resistance, and sleek finishes.
-        </p>
-        <button class="text-[#46B4B1] font-semibold flex items-center gap-2 group-hover:underline">
-          Request Quote <span>&rarr;</span>
-        </button>
-      </div>
 
-      <div class="group bg-[#1f2937] p-8 rounded-2xl border border-gray-700 hover:border-[#46B4B1] transition-all duration-300 shadow-xl">
-        <div class="mb-6 group-hover:text-[#46B4B1] transition-transform duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-          </svg>
+        <div class="reveal group bg-[#1f2937] p-8 rounded-2xl border border-gray-700 hover:border-[#46B4B1] transition-all duration-300 shadow-xl">
+            <div class="mb-6 group-hover:text-[#46B4B1] transition-transform duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Façade Engineering</h3>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+                Advanced curtain wall solutions for commercial high-rises. We create self-supporting glass envelopes that provide striking visuals and climate-controlled interiors.
+            </p>
+            <button class="text-[#46B4B1] font-semibold flex items-center gap-2 group-hover:underline">
+                See Technology <span>&rarr;</span>
+            </button>
         </div>
-        <h3 class="text-2xl font-bold mb-3">Façade Engineering</h3>
-        <p class="text-gray-400 mb-6 leading-relaxed">
-          Advanced curtain wall solutions for commercial high-rises. We create self-supporting glass envelopes that provide striking visuals and climate-controlled interiors.
-        </p>
-        <button class="text-[#46B4B1] font-semibold flex items-center gap-2 group-hover:underline">
-          See Technology <span>&rarr;</span>
-        </button>
-      </div>
 
     </div>
   </div>

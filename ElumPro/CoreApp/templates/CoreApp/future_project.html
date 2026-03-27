@@ -1,45 +1,45 @@
 {% load static %}
 {% block block %}
+<section class="relative w-full min-h-[70vh] bg-[#0f172a] overflow-hidden">
     
-    <section class="flex justify-between bg-gradient-to-t from-[#201f1f] to-[#3e3c3c] relative w-full ">
-
-        <div class="bg-gradient-to-t from-[#201f1f] to-[#3e3c3c] h-1/2" >
+    <div class="absolute inset-0 w-full h-full z-0">
+        <div id="hero-slider" class="relative w-full h-full">
+            <img class="slider-img absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-1000" 
+                 src="{% static 'images/premium_photo-1748283940309-8e68a0ef23d2.avif' %}" alt="Engineering 1">
+            <img class="slider-img absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000" 
+                 src="{% static 'images/Stercas1.png' %}" alt="Engineering 2">
+            <img class="slider-img absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000" 
+                 src="{% static 'images/stercas2.png' %}" alt="Engineering 3">
+            
+            <div class="absolute inset-0 bg-black/50"></div>
         </div>
+    </div>
 
-        <section class="flex justify-start items-center
-            h-1/2 w-[60%]
-            absolute top-[30%]
+    <div class="relative z-10 flex items-center h-full min-h-[70vh] px-8 sm:px-16">
+        <div class="bg-gradient-to-r from-[#3da3a0]/90 to-transparent backdrop-blur-md p-8 sm:p-12 border-l-8 border-[#2a7a78] shadow-2xl max-w-2xl transform hover:scale-[1.02] transition-transform duration-500">
+            
+            <div class="flex items-center gap-4 mb-4">
+                <span class="w-12 h-1 bg-white rounded-full"></span>
+                <h2 class="text-sm sm:text-lg font-black text-white tracking-[0.2em] uppercase">
+                    Services We Do
+                </h2>
+            </div>
 
-                bg-gradient-to-t from-[#3da3a0]
-             {% comment %} to-[#3e3c3c] {% endcomment %}
-            backdrop-blur-md
-            border-l-4 border-[#2a7a78]
-            shadow-2xl"
-            >
-            <div>
-  <div class="flex items-center gap-2 mb-3 ml-4 sm:ml-8">
-    <span class="w-[40px] sm:w-[50px] h-[3px] bg-[#3da3a0] rounded-full"></span>
-    <h1 class="text-sm sm:text-base font-bold text-white">
-      SERVICES WE DO
-    </h1>
-  </div>
-
-  <div class="font-bold text-white">
-    <p class="text-xl sm:text-2xl md:text-3xl lg:text-4xl">
-      Our Featured Services
-    </p>
-  </div>
-</div>
-        </section>
-
-        <div class="w-1/2 left-100">
-            <img leading src="{% static 'images/premium_photo-1748283940309-8e68a0ef23d2.avif' %}" alt="AYLUM Limited Engineering Project">
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight">
+                Our Featured <br>
+                <span class="text-[#0f172a]">Engineering</span> Services
+            </h1>
+            
+            <p class="mt-6 text-white/80 max-w-md text-lg italic">
+                Delivering precision glazing and turnkey structural solutions from Lagos to the world.
+            </p>
         </div>
-    </section>
+    </div>
 
+    {% comment %} <div class="absolute bottom-8 right-12 z-20 flex gap-4">
+        <div id="slide-indicator" class="text-white font-mono text-xl">01 / 03</div>
+    </div> {% endcomment %}
 
-{% endblock  %}
-
-{% block javascript %}
-    <script src="{% static 'javascript/future_project.js' %}"></script>
-{% endblock  %}
+</section>
+<script src="{% static 'javascript/future_project.js' %}"></script>
+{% endblock %}

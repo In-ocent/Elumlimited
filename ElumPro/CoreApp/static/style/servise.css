@@ -1,0 +1,11 @@
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity; /* Improves performance on mobile */
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}

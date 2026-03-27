@@ -74,7 +74,7 @@
     width: 60px;
     height: 60px;
     background-color: #46b4b1;
-    clip-path: polygon(0% 0, 100% 0, 100% 100%, 50% 100%);
+    clip-path: polygon(0% 0, 100% 0, 100% 100%, 60% 100%);
     position: relative;
     overflow: hidden;
     z-index: 2;
@@ -129,4 +129,36 @@
     50%, 100% { 
         transform: translate(20%, 20%); opacity: 0; 
     }
+}
+
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Optional: Custom Scrollbar to match your Teal theme */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #000; 
+}
+::-webkit-scrollbar-thumb {
+    background: #46B4B1; 
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #3da3a0; 
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }

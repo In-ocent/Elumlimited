@@ -5,11 +5,11 @@
 <!-- Top Spacer (if navbar is fixed) -->
 <div class="w-full h-20 bg-black"></div>
 
-<section class="bg-white text-black py-16">
-    <div class="max-w-6xl mx-auto px-6 space-y-20">
+<section class="reveal bg-white text-black py-16">
+    <div class="reveal max-w-6xl mx-auto px-6 space-y-20">
 
         <!-- ================= MEDIA ================= -->
-        <div class="relative w-full h-[75vh] overflow-hidden rounded-3xl shadow-2xl group">
+        <div class="reveal relative w-full h-[75vh] overflow-hidden rounded-3xl shadow-2xl group">
             
             {% if project.featured_video %}
                 <video autoplay muted loop playsinline
@@ -30,7 +30,7 @@
 
 
         <!-- ================= TITLE + META ================= -->
-        <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div class="reveal grid md:grid-cols-2 gap-12 items-start">
 
             <!-- Title -->
             <div>
@@ -42,7 +42,7 @@
             </div>
 
             <!-- Meta Info -->
-            <div class="space-y-4 text-sm uppercase tracking-widest text-gray-500">
+            <div class="reveal  space-y-4 text-sm uppercase tracking-widest text-gray-500">
 
                 <div class="flex justify-between border-b border-gray-200 pb-3">
                     <span>Category</span>
@@ -51,7 +51,7 @@
                     </span>
                 </div>
 
-                <div class="flex justify-between border-b border-gray-200 pb-3">
+                <div class="reveal flex justify-between border-b border-gray-200 pb-3">
                     <span>Status</span>
                     <span class="text-[#46B4B1] font-medium">
                         {{ project.status }}
@@ -59,7 +59,7 @@
                 </div>
 
                 {% if project.location %}
-                <div class="flex justify-between border-b border-gray-200 pb-3">
+                <div class="reveal flex justify-between border-b border-gray-200 pb-3">
                     <span class="mr-5">Location</span>
                     <span class="text-[#46B4B1] font-medium">
                         {{ project.location }}
@@ -72,8 +72,8 @@
 
 
         <!-- ================= DESCRIPTION ================= -->
-        <div class="max-w-3xl text-lg leading-relaxed text-gray-600">
-            <p class="border-l-4 border-[#46B4B1] pl-6">
+        <div class="reveal max-w-3xl text-lg leading-relaxed text-gray-600">
+            <p class="reveal border-l-4 border-[#46B4B1] pl-6">
                 {{ project.description }}
             </p>
         </div>

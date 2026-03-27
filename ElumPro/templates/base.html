@@ -62,30 +62,25 @@
     {% block style %}
         <link rel="stylesheet" href="{% static 'css/output.css' %}">
         <link rel="stylesheet" href="{% static 'src/custom_Style.css' %}">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-        
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">        
     {% endblock %}
 </head>
 
 <body class="bg-black">
-    
-
-    <header class="absolute top-0 
-    left-0 w-full z-50 
-    backdrop-blur-md bg-white/10
-    ">
+        <header class="absolute top-0 
+        left-0 w-full z-50 
+        backdrop-blur-md bg-white/10
+        ">
         
         <div class="flex justify-between items-center pt-1  px-8 font-bold z-50">
-
             <!-- Logo -->
             <div class="pb-3">
-            <a href="{% url 'home' %}">
-                <div id="logo-wrapper" class="flex ">
-                    <div id="triangle"></div>
-                    <div id="shape"></div>
-            </div> 
-            </a>
+                <a href="{% url 'home' %}">
+                    <div id="logo-wrapper" class="flex">
+                        <div id="triangle"></div>
+                        <div id="shape"></div>
+                    </div> 
+                </a>
             <h1 class="font-serif text-white text-xs tracking-wide">
                 Aylum Limited
             </h1>
@@ -162,7 +157,7 @@
                     Engineering Excellence
                 </p>
             </div>
-        </div> {% endcomment %}
+        </div>  {% endcomment %}
 
         {% block content %}
         <a 
@@ -293,7 +288,7 @@
 
     {% block javascript %}
             {{ block.super }}
-            <script src="{% static 'js/index.js' %}"></script>
+            <script src="{% static 'javascripts/index.js' %}"></script>
     {% endblock  %}
 </body>
 </html>

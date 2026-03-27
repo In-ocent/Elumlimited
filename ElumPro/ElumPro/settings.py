@@ -73,23 +73,23 @@ WSGI_APPLICATION = 'ElumPro.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # ... (rest of your settings)
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL'),
-        conn_max_age=0,  # Change this from 600 to 0
-        ssl_require=True
-    )
-}
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=os.environ.get('DATABASE_URL'),
+#         conn_max_age=0,  # Change this from 600 to 0
+#         ssl_require=True
+#     )
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -126,23 +126,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 
-STATIC_URL = '/static/'
+# 1. The URL to use when referring to static files
+STATIC_URL = 'static/'
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'DEPLOY_STATIC')
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-# //STATICFILES_DIRS = [
-# //BASE_DIR / 'CoreApp' / 'static',
-# //]
-
-# If your static files are inside ElumPro/static
+# 2. Where Django looks for static files in your project folders
 STATICFILES_DIRS = [
-    BASE_DIR / "ElumPro" / "static",
+    os.path.join(BASE_DIR, 'static'),
 ]
 
-# STATICFILES_DIRS = [
-#     BASE_DIR / "static"
-# ]
+# 3. Where files are gathered for production (usually a 'staticfiles' folder)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Cloudinary Config (Get these from your Cloudinary Dashboard)
 CLOUDINARY_STORAGE = {

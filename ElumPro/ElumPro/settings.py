@@ -135,10 +135,14 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # //BASE_DIR / 'CoreApp' / 'static',
 # //]
 
-
+# If your static files are inside ElumPro/static
 STATICFILES_DIRS = [
-    BASE_DIR / "static"
+    BASE_DIR / "ElumPro" / "static",
 ]
+
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static"
+# ]
 
 # Cloudinary Config (Get these from your Cloudinary Dashboard)
 CLOUDINARY_STORAGE = {

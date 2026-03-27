@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('a[href]:not([target="_blank"]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"])');
 
     // 10 seconds is much safer than 20, but I'll keep it long as you requested
-    const LOAD_TIME = 1000;
+    const LOAD_TIME = 2000;
 
     const runLoadingSequence = (callback) => {
         if (!preloader || !progressBar) return;

@@ -86,7 +86,7 @@ DATABASES = {
 # DATABASES = {
 #     'default': dj_database_url.config(
 #         default=os.environ.get('DATABASE_URL'),
-#         conn_max_age=0,  # Change this from 600 to 0
+#         conn_max_age=0,
 #         ssl_require=True
 #     )
 # }
@@ -130,6 +130,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 # 2. Where Django looks for static files in your project folders
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]

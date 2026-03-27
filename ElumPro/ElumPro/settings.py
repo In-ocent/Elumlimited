@@ -131,8 +131,13 @@ STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'DEPLOY_STATIC')
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+# //STATICFILES_DIRS = [
+# //BASE_DIR / 'CoreApp' / 'static',
+# //]
+
+
 STATICFILES_DIRS = [
-    BASE_DIR / 'CoreApp' / 'static',
+    BASE_DIR / "static"
 ]
 
 # Cloudinary Config (Get these from your Cloudinary Dashboard)

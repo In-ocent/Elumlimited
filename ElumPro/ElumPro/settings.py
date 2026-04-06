@@ -10,16 +10,19 @@ env = environ.Env(DEBUG=(bool, False))
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # 3. Read .env
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+# 3. Read .env (Add a check so it doesn't crash on Vercel)
+if os.path.exists(os.path.join(BASE_DIR, '.env')):
+    environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-SECRET_KEY = env("SECRET_KEY")
-DEBUG = env("DEBUG")
+SECRET_KEY = os.environ.get("SECRET_KEY", "fallback-key-for-local-only")
+DEBUG = os.environ.get("DEBUG", "False") == "True"
+
 VERCEL_URL = os.environ.get('VERCEL_URL')
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
 
-    '.vercel.app',            # Allows all Vercel deployment subdomains
+    # Allows all Vercel deployment subdomains
 ]
 
 # Add the specific Vercel deployment URL if it's available

@@ -6,30 +6,30 @@ import environ
 # 1. Setup environment variables
 env = environ.Env(DEBUG=(bool, False))
 
-# 2. Define BASE_DIR ONCE (pointing to the folder with manage.py)
+# 2. Define BASE_DIR
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# 3. Read .env
-# 3. Read .env (Add a check so it doesn't crash on Vercel)
+# 3. Read .env (Only if it exists locally)
 if os.path.exists(os.path.join(BASE_DIR, '.env')):
     environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
+# 4. Get variables safely from Environment
 SECRET_KEY = os.environ.get("SECRET_KEY", "fallback-key-for-local-only")
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
+# Define VERCEL_URL before using it
 VERCEL_URL = os.environ.get('VERCEL_URL')
+
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-
-    # Allows all Vercel deployment subdomains
+    '.vercel.app',
+    '.cloudinary.com',
 ]
 
-# Add the specific Vercel deployment URL if it's available
+# Now this will work because VERCEL_URL is defined above
 if VERCEL_URL:
     ALLOWED_HOSTS.append(VERCEL_URL)
-
-# Application definition
 
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',  # Add this at the VERY top

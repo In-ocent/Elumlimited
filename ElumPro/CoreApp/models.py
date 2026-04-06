@@ -7,6 +7,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 import uuid
 from django.db import models
 from django.conf import settings
+from cloudinary.models import CloudinaryField
 
 
 class Project(models.Model):
@@ -33,12 +34,12 @@ class Project(models.Model):
 
     completion_date = models.DateField(null=True, blank=True)
 
-    featured_image = models.ImageField(
-        upload_to="projects/", blank=True, null=True)
-    featured_video = models.FileField(
-        upload_to="projects/videos/", blank=True, null=True)
-    secondary_image = models.ImageField(
-        upload_to="projects/", blank=True, null=True)
+    featured_image = CloudinaryField(
+        'image', blank=True, null=True)
+    featured_video = CloudinaryField(
+        resource_type='video', blank=True, null=True)
+    secondary_image = CloudinaryField(
+        'image', blank=True, null=True)
 
     is_featured = models.BooleanField(default=False)
 
@@ -79,7 +80,7 @@ class Testimonial(models.Model):
     position = models.CharField(
         max_length=100, help_text="e.g. CEO of BuildCorp or Homeowner")
     content = models.TextField()
-    image = models.ImageField(upload_to='testimonials/', blank=True, null=True)
+    image = CloudinaryField('image', blank=True, null=True)
     stars = models.IntegerField(
         default=5, choices=[(i, i) for i in range(1, 6)])
     created_at = models.DateTimeField(auto_now_add=True)

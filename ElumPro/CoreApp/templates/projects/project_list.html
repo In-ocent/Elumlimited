@@ -1,6 +1,7 @@
 
 {% load static %}
 {% block content %}
+<script src="https://unpkg.com/scrollreveal"></script>
 
 <div id="projects" class="reveal text-center text-white bg-black pt-20">
     <h2 class="text-sm tracking-[0.3em] uppercase text-[#46B4B1]">Portfolio</h2>
@@ -51,7 +52,27 @@
                         {{ project.category }}
                     </p>
                 </div>
-            </div>
+            </div> 
+            {% comment %} <div class="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden] rounded-2xl overflow-hidden">
+                <img src="{{ project.secondary_image.url|default:'/static/default.jpg' }}" 
+                    alt="{{ project.title }}" class="w-full h-full object-cover">
+
+                <div class="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0
+                            group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-10">
+                    <h3 class="text-white text-2xl font-semibold opacity-0 translate-y-3
+                            group-hover:opacity-100 group-hover:translate-y-0
+                            transition-all duration-500 delay-300">
+                        {{ project.title }}
+                    </h3>
+                    <p class="text-[#46B4B1] mt-2 text-sm uppercase tracking-widest opacity-0 translate-y-3
+                            group-hover:opacity-100 group-hover:translate-y-0
+                            transition-all duration-500 delay-500">
+                        {{ project.category }}
+                    </p>
+                 </div>
+            </div> {% endcomment %}
         </div>
     </a>
 {% empty %}
@@ -60,4 +81,27 @@
 
 </section>
 
+<script>
+  const observerOptions = {
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Add a class to make it visible, or just set opacity
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+        entry.target.style.transition = "all 0.8s ease-out";
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.reveal').forEach((el) => {
+    // Set initial state via JS so they don't stay hidden if JS fails
+    el.style.opacity = "0";
+    el.style.transform = "translateY(20px)";
+    observer.observe(el);
+  });
+</script>
 {% endblock %}

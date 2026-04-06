@@ -14,7 +14,17 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
-ALLOWED_HOSTS = ["*"]
+VERCEL_URL = os.environ.get('VERCEL_URL')
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+
+    '.vercel.app',            # Allows all Vercel deployment subdomains
+]
+
+# Add the specific Vercel deployment URL if it's available
+if VERCEL_URL:
+    ALLOWED_HOSTS.append(VERCEL_URL)
 
 # Application definition
 
@@ -22,7 +32,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',  # Add this at the VERY top
     'cloudinary_storage',
     'django.contrib.sites',
-    'cloudinary',
+
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -30,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary',
 
     # Manualy added
     "CoreApp",

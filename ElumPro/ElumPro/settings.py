@@ -6,36 +6,27 @@ import environ
 # 1. Setup environment variables
 env = environ.Env(DEBUG=(bool, False))
 
-# 2. Define BASE_DIR
+# 2. Define BASE_DIR ONCE (pointing to the folder with manage.py)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# 3. Read .env (Only if it exists locally)
-if os.path.exists(os.path.join(BASE_DIR, '.env')):
-    environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+# 3. Read .env
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-# 4. Get variables safely from Environment
-SECRET_KEY = os.environ.get("SECRET_KEY", "fallback-key-for-local-only")
-DEBUG = os.environ.get("DEBUG", "False") == "True"
-
-# Define VERCEL_URL before using it
-VERCEL_URL = os.environ.get('VERCEL_URL')
-
+SECRET_KEY = env("SECRET_KEY")
+DEBUG = env("DEBUG")
 ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    '.vercel.app',
-    '.cloudinary.com',
-]
+    'aylumlimited.com',
+    'www.aylumlimited.com',
+    'https://elumlimited.onrender.com',
+    'localhost', '127.0.0.1']
 
-# Now this will work because VERCEL_URL is defined above
-if VERCEL_URL:
-    ALLOWED_HOSTS.append(VERCEL_URL)
+# Application definition
 
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',  # Add this at the VERY top
     'cloudinary_storage',
     'django.contrib.sites',
-
+    'cloudinary',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,7 +34,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cloudinary',
 
     # Manualy added
     "CoreApp",
@@ -55,7 +45,7 @@ SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # <--- MUST BE HERE
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -63,7 +53,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'ElumPro.urls'
 

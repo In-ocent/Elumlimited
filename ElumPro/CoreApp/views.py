@@ -238,7 +238,7 @@ def send_safe_email(booking):
 
 
 def send_booking_confirmation(booking):
-    subject = f"Confirmed: Consultation with ElumPro"
+    subject = f"Confirmed: Consultation with Aylumlimited"
     recipient_list = [booking.email]
 
     # This context passes data to your HTML email template

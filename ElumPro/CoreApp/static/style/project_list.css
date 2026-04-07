@@ -1,0 +1,11 @@
+/* Add this to your style tag or output.css */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.active-reveal {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}

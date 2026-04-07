@@ -2,6 +2,19 @@
 {% load static %}
 {% block content %}
 <script src="https://unpkg.com/scrollreveal"></script>
+<style>
+    .perspective {
+  perspective: 1000px;
+}
+.flip-card {
+  transform-style: preserve-3d;
+  transition: transform 0.7s;
+}
+
+.group:hover .flip-card {
+  transform: rotateY(180deg);
+}
+</style>
 
 <div id="projects" class="reveal text-center text-white bg-black pt-20">
     <h2 class="text-sm tracking-[0.3em] uppercase text-[#46B4B1]">Portfolio</h2>
@@ -20,10 +33,9 @@
             <a href="{% url 'project_detail' project.slug %}" class="group block">
         {% endif %}
     {% endif %}
-
-        <div class="reveal  relative h-[250px] w-full rounded-2xl shadow-xl
-                    transition-transform duration-700 [transform-style:preserve-3d]
-                    group-hover:[transform:rotateY(180deg)]">
+   
+        <div class="flip-card relative h-[250px] w-full rounded-2xl shadow-xl">
+        
             <!-- Front Side -->
             <div class="absolute inset-0 [backface-visibility:hidden] rounded-2xl overflow-hidden border border-white/10">
                 <img src="{{ project.featured_image.url }}" 
@@ -53,32 +65,12 @@
                     </p>
                 </div>
             </div> 
-            {% comment %} <div class="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden] rounded-2xl overflow-hidden">
-                <img src="{{ project.secondary_image.url|default:'/static/default.jpg' }}" 
-                    alt="{{ project.title }}" class="w-full h-full object-cover">
-
-                <div class="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0
-                            group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-10">
-                    <h3 class="text-white text-2xl font-semibold opacity-0 translate-y-3
-                            group-hover:opacity-100 group-hover:translate-y-0
-                            transition-all duration-500 delay-300">
-                        {{ project.title }}
-                    </h3>
-                    <p class="text-[#46B4B1] mt-2 text-sm uppercase tracking-widest opacity-0 translate-y-3
-                            group-hover:opacity-100 group-hover:translate-y-0
-                            transition-all duration-500 delay-500">
-                        {{ project.category }}
-                    </p>
-                 </div>
-            </div> {% endcomment %}
         </div>
     </a>
-{% empty %}
-    <p class="reveal text-white text-center col-span-full">No projects available yet.</p>
-{% endfor %}
 
+    {% empty %}
+        <p class="reveal text-white text-center col-span-full">No projects available yet.</p>
+    {% endfor %}
 </section>
 
 <script>

@@ -151,14 +151,17 @@ CLOUDINARY_STORAGE = {
 # Emails Booking Systems
 
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'  # Or your provider
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = 'your-email@gmail.com'
-# EMAIL_HOST_PASSWORD = 'your-app-password'
-# EMAIL_TIMEOUT = 10
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True   # Use this for port 465
+
+
+EMAIL_HOST_USER = 'aao@aylumlimited.com'  # your Zoho email
+EMAIL_HOST_PASSWORD = 'bN5CgejtQv3E'
+
+DEFAULT_FROM_EMAIL = 'Aylum Limited <aao@aylumlimited.com>'
 
 # Midia seting
 

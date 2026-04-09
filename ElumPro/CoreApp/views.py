@@ -1,3 +1,4 @@
+import datetime
 import threading  # New import for speed
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
@@ -11,7 +12,7 @@ from .forms import ProjectMessageForm
 from django.contrib import messages
 # Boking Systems
 import threading
-import datetime
+
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 from django.template.loader import render_to_string
@@ -188,30 +189,47 @@ def book_session(request):
         phone = request.POST.get('phone_number')
         service_id = request.POST.get('service_type')
 
-        # 1. Validation: Ensure all fields are present
+        # 1. Validate required fields
         if not all([date, slot, name, email, phone, service_id]):
             return JsonResponse({'status': 'error', 'message': 'All fields are required.'})
 
-        # 2. Convert service_id to Service Object
+        # 2. Validate and convert date
+        try:
+            booking_date = datetime.datetime.strptime(date, '%Y-%m-%d').date()
+        except (ValueError, TypeError):
+            return JsonResponse({
+                'status': 'error',
+                'message': 'Invalid date format.'
+            })
+
+        # 3. Optional but smart: prevent past bookings
+        if booking_date < datetime.date.today():
+            return JsonResponse({
+                'status': 'error',
+                'message': 'You cannot book a past date.'
+            })
+
+        # 4. Get service safely
         service_obj = get_object_or_404(Service, id=service_id)
 
-        # 3. Double-check availability
-        if Booking.objects.filter(booking_date=date, booking_slot=slot).exists():
+        # 5. Check availability (USE validated date)
+        if Booking.objects.filter(
+            booking_date=booking_date,
+            booking_slot=slot
+        ).exists():
             return JsonResponse({'status': 'error', 'message': 'This slot was just taken!'})
 
-        # 4. Create the Booking
         try:
             booking = Booking.objects.create(
                 full_name=name,
                 email=email,
                 phone_number=phone,
                 service_type=service_obj,
-                booking_date=date,
+                booking_date=booking_date,  # ✅ FIXED
                 booking_slot=slot
             )
 
-            # 5. Background Email Trigger (SPEED FIX)
-            # We use a thread so the view returns 'success' without waiting for the email server
+            # 6. Background email (still okay for now)
             email_thread = threading.Thread(
                 target=send_safe_email,
                 args=(booking,)
@@ -221,11 +239,12 @@ def book_session(request):
             return JsonResponse({'status': 'success'})
 
         except Exception as e:
-            return JsonResponse({'status': 'error', 'message': f'Database error: {str(e)}'})
+            return JsonResponse({
+                'status': 'error',
+                'message': f'Database error: {str(e)}'
+            })
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request'})
-
-
 # Helper function to handle email in the background safely
 
 

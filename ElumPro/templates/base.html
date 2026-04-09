@@ -74,6 +74,7 @@
         
         <div class="flex justify-between items-center pt-1  px-8 font-bold z-50">
             <!-- Logo -->
+            <!-- Logo -->
             <div class="pb-3">
                 <a href="{% url 'home' %}">
                     <div id="logo-wrapper" class="flex">
@@ -81,10 +82,13 @@
                         <div id="shape"></div>
                     </div> 
                 </a>
-            <h1 class="font-serif text-white text-xs tracking-wide">
-                Aylum Limited
-            </h1>
+            <div class="flex aligned items-center justify-center">
+                    <h1 class="font-serif text-white text-lg tracking-[0.1em] leading-none">Aylum</h1>
+                    <span class="text-lg text-[#46B4B1] tracking-[0.15em] uppercase leading-none font-light opacity-90">Limited</span>
+                </div>
             </div>
+
+            
 
             <!-- Hamburger -->
             <button id="menu-btn" 
@@ -141,12 +145,13 @@
         </div>
     </header>
     <main>
-    <div id="preloader" class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black transition-all duration-700 ease-in-out">
+        <div id="preloader" class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black transition-all duration-700 ease-in-out">
             <div class="relative flex flex-col items-center">
                 
                 <div id="aylum-logo-container">
-                    <div id="aylum-left-triangle"></div>
-                    <div id="aylum-right-gem"></div>
+                    <div id="aylum-logo-container">
+                <img src="/static/images&videos/lim-logo-icon.png" alt="Elim" class="w-32 md:w-48 mb-8 animate-pulse-slow">
+            </div>
                 </div>
                 
                 <div class="w-64 h-1.5 bg-gray-900 rounded-full overflow-hidden shadow-inner">

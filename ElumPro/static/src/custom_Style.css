@@ -1,3 +1,44 @@
+logo-wrapper/* --- 1. HEADER LOGO --- */
+#logo-wrapper {
+    transition: transform 0.3s ease;
+}
+
+#logo-wrapper:hover {
+    transform: scale(1.05);
+    transition: 2s;
+}
+
+/* --- 2. PRELOADER LOGO --- */
+#aylum-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.animate-pulse-slow {
+    animation: professionalPulse 4s ease-in-out infinite;
+}
+
+@keyframes professionalPulse {
+    0%, 100% { 
+        transform: scale(1); 
+        filter: brightness(1) drop-shadow(0 0 0px rgba(70, 180, 177, 0)); 
+    }
+    50% { 
+        transform: scale(1.05); 
+        filter: brightness(1.2) drop-shadow(0 0 20px rgba(70, 180, 177, 0.4)); 
+    }
+}
+
+/* Custom Scrollbar to match the Teal color in the new logo */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { 
+    background: #46B4B1; 
+    border-radius: 10px; 
+}
+/*                    */
 /* --- 1. HEADER LOGO (Small, Static, Clean) --- */
 #logo-wrapper {
     display: flex;

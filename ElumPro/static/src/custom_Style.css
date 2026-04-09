@@ -62,10 +62,10 @@ logo-wrapper/* --- 1. HEADER LOGO --- */
 /* Turquoise Gem with Two Lines */
 
 #shape {
-    width: 60px;
+    width: 70px;
     height: 56px;
     background-color: #46b4b1;
-    clip-path: polygon(0% 0, 100% 0, 100% 100%, 50% 100%);
+    clip-path: polygon(0% 0, 100% 0, 100% 100%, 55% 100%);
     position: relative;
     overflow: hidden;
     z-index: 2;

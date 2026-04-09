@@ -27,9 +27,9 @@
 <section class="reveal relative w-full h-screen overflow-hidden">
 
     <div id="hero-slider" class="absolute inset-0">
-        <img src="{% static 'images/Stercas1.png' %}" class="hero-slide active-slide" id="img-0" alt="Slide 1">
-        <img src="{% static 'images/stercas2.png' %}" class="hero-slide hidden-slide" id="img-1" alt="Slide 2">
-        <img src="{% static 'images/Elum2.png' %}" class="hero-slide hidden-slide" id="img-2" alt="Slide 3">
+        <img rel="preload" as="image" src="{% static 'images/Stercas1.png' %}" class="hero-slide active-slide" id="img-0" alt="Slide 1">
+        <img rel="preload" as="image" src="{% static 'images/stercas2.png' %}" class="hero-slide hidden-slide" id="img-1" alt="Slide 2">
+        <img rel="preload" as="image" src="{% static 'images/Elum2.png' %}" class="hero-slide hidden-slide" id="img-2" alt="Slide 3">
     </div>
 
     <div class="absolute inset-0 bg-black/50 z-10 pointer-events-none"></div>

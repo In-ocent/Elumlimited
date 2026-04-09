@@ -17,6 +17,55 @@
         }
         .hidden-slide { opacity: 0; }
         .active-slide { opacity: 1; }
+
+
+        
+/* Typography and Spacing */
+.value-label {
+    color: #4ebaba;
+    /* Your Teal Color */
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.value-title {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-top: 4px;
+}
+
+/* The "Teal Glow" Effect */
+.value-card:hover .value-title {
+    color: #4ebaba;
+    text-shadow: 0 0 15px rgba(78, 186, 186, 0.6);
+    transition: all 0.3s ease;
+}
+
+.value-description {
+    color: #a1a1a1;
+    /* Dimmed gray for readability */
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-top: 8px;
+    max-width: 280px;
+}
+
+
+.value-card {
+  border-top: 2px solid #1a1a1a; /* Dark gray line by default */
+  padding-top: 20px;
+  transition: border-color 0.4s ease;
+  margin-top:2em;
+}
+
+.value-card:hover {
+  border-top: 2px solid #4ebaba; /* Glows teal on hover */
+}
     </style>
 {% endblock %}
 
@@ -109,33 +158,137 @@
         </div>
     </div>
 </section>
+{% comment %} <section class="bg-black p-10 font-sans">
+  <div class="mb-12 border-b border-gray-800 pb-6">
+    <p class="value-label text-white opacity-50">The Aylum Standard</p>
+    <h2 class="text-6xl font-black text-white">CORE VALUES</h2>
+  </div>
 
-<section class="reveal  py-24 bg-gradient-to-b from-[#46B4B1] to-[#3da3a0]">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-black text-center md:text-left leading-tight text-5xl md:text-7xl font-extrabold ">
-            Why Choose <span class="text-white underline underline-offset-8">AYLUM</span> Limited
-        </h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-y-12 gap-x-8">
+    
+    <div class="value-card">
+      <p class="value-label">VALUE_01</p>
+      <h3 class="value-title">QUALITY</h3>
+      <p class="value-description">Uncompromising standards in aluminum installations and structural glazing.</p>
+    </div>
 
-        <div class="mt-14 max-w-4xl mx-auto text-center">
-            <p class="text-black font-semibold text-xl md:text-2xl leading-relaxed">
-                From Bespoke Manufacturing to Global Turnkey Installation.
-            </p>
+    <div class="value-card">
+      <p class="value-label">VALUE_02</p>
+      <h3 class="value-title">ASSURANCE</h3>
+      <p class="value-description">Providing peace of mind through rigorous testing and durable materials.</p>
+    </div>
 
-            <p class="mt-6 text-black/90 text-lg md:text-xl leading-relaxed">
-                Since our inception in <span class="font-bold">2004</span>, AYLUM Limited has redefined the standards of 
-                architectural glazing and structural engineering. With over <span id="dynamic-years" class="font-bold text-white"></span> 
-                years of expertise, we offer the manufacturing precision and logistical efficiency required to deliver 
-                sophisticated glass and aluminium solutions for iconic projects worldwide.
-            </p>
+    <div class="value-card">
+      <p class="value-label">VALUE_03</p>
+      <h3 class="value-title">INTEGRITY</h3>
+      <p class="value-description">Conducted in full accordance with global business ethics and codes of practice.</p>
+    </div>
+    <div class="value-card">
+      <p class="value-label">VALUE_04</p>
+      <h3 class="value-title"> PRECISION</h3>
+        <p class="value-description">
+            Accurate engineering and perfect finishing in every window and door.
+        </p>
+    </div>
 
-            <div class="mt-10 flex flex-wrap justify-center gap-4 text-sm font-bold uppercase tracking-widest text-white">
-                <span class="reveal bg-black/20 px-4 py-2 rounded-full border border-white/30">Architectural Glass</span>
-                <span class="reveal bg-black/20 px-4 py-2 rounded-full border border-white/30">Aluminium Systems</span>
-                <span class="reveal bg-black/20 px-4 py-2 rounded-full border border-white/30">Structural Glazing</span>
+
+    <div class="value-card">
+      <p class="value-label">VALUE_05</p>
+      <h3 class="value-title"> INNOVATION</h3>
+        <p class="value-description">
+            Utilizing modern systems to provide sustainable architectural solutions.
+        </p>
+    </div>
+
+    <div class="value-card">
+      <p class="value-label">VALUE_06</p>
+      <h3 class="value-title"> FELLOWSHIP</h3>
+        <p class="value-description">
+            Rooted in a foundation of truth, love, and community (incorporating your "Fear of God" and "Love" values).
+        </p>
+    </div>
+
+    </div>
+</section> {% endcomment %}
+
+<section class="reveal py-24 bg-[#050505] text-white border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="mb-20">
+            <p class="text-[10px] font-black tracking-[0.4em] text-[#46B4B1] uppercase mb-4">The Aylum Standard</p>
+            <h2 class="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
+                CORE <br> VALUES
+            </h2>
+            <div class="w-20 h-1 bg-[#46B4B1] mt-8"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-white/10">
+            
+            <div class="p-8 border-r border-b border-white/10 hover:bg-[#46B4B1]/5 transition-all">
+                <span class="text-[10px] font-mono text-[#46B4B1] block mb-4">VALUE_01</span>
+                <h4 class="text-xl font-bold uppercase tracking-tight">Quality</h4>
             </div>
+
+            <div class="p-8 border-r border-b border-white/10 hover:bg-[#46B4B1]/5 transition-all">
+                <span class="text-[10px] font-mono text-[#46B4B1] block mb-4">VALUE_02</span>
+                <h4 class="text-xl font-bold uppercase tracking-tight">Assurance</h4>
+            </div>
+
+            <div class="p-8 border-r border-b border-white/10 hover:bg-[#46B4B1]/5 transition-all">
+                <span class="text-[10px] font-mono text-[#46B4B1] block mb-4">VALUE_03</span>
+                <h4 class="text-xl font-bold uppercase tracking-tight">Faithfulness</h4>
+            </div>
+
+            <div class="p-8 border-r border-b border-white/10 hover:bg-[#46B4B1]/5 transition-all">
+                <span class="text-[10px] font-mono text-[#46B4B1] block mb-4">VALUE_04</span>
+                <h4 class="text-xl font-bold uppercase tracking-tight">Truth</h4>
+            </div>
+
+            <div class="p-8 border-r border-b border-white/10 hover:bg-[#46B4B1]/5 transition-all">
+                <span class="text-[10px] font-mono text-[#46B4B1] block mb-4">VALUE_05</span>
+                <h4 class="text-xl font-bold uppercase tracking-tight">Fear of God</h4>
+            </div>
+
+            <div class="p-8 border-r border-b border-white/10 hover:bg-[#46B4B1]/5 transition-all">
+                <span class="text-[10px] font-mono text-[#46B4B1] block mb-4">VALUE_06</span>
+                <h4 class="text-xl font-bold uppercase tracking-tight">Love</h4>
+            </div>
+
+            <div class="p-8 border-r border-b border-white/10 hover:bg-[#46B4B1]/5 transition-all">
+                <span class="text-[10px] font-mono text-[#46B4B1] block mb-4">VALUE_07</span>
+                <h4 class="text-xl font-bold uppercase tracking-tight">Integrity</h4>
+            </div>
+
+            <div class="p-8 border-r border-b border-white/10 hover:bg-[#46B4B1]/5 transition-all">
+                <span class="text-[10px] font-mono text-[#46B4B1] block mb-4">VALUE_08</span>
+                <h4 class="text-xl font-bold uppercase tracking-tight">Merit</h4>
+            </div>
+
+            <div class="p-8 border-r border-b border-white/10 hover:bg-[#46B4B1]/5 transition-all">
+                <span class="text-[10px] font-mono text-[#46B4B1] block mb-4">VALUE_09</span>
+                <h4 class="text-xl font-bold uppercase tracking-tight">Intelligence</h4>
+            </div>
+
+            <div class="p-8 border-r border-b border-white/10 hover:bg-[#46B4B1]/5 transition-all">
+                <span class="text-[10px] font-mono text-[#46B4B1] block mb-4">VALUE_10</span>
+                <h4 class="text-xl font-bold uppercase tracking-tight">Fairness</h4>
+            </div>
+
+            <div class="p-8 border-r border-b border-white/10 hover:bg-[#46B4B1]/5 transition-all">
+                <span class="text-[10px] font-mono text-[#46B4B1] block mb-4">VALUE_11</span>
+                <h4 class="text-xl font-bold uppercase tracking-tight">Profitability</h4>
+            </div>
+
+            <div class="p-8 border-r border-b border-white/10 bg-[#46B4B1]/10 flex items-center">
+                <p class="text-[11px] leading-relaxed font-bold uppercase tracking-[0.1em] text-[#46B4B1]">
+                    Conducted in accordance with global business ethics and code of practice.
+                </p>
+            </div>
+
         </div>
     </div>
 </section>
+
 
 <script>
     // Experience Counter

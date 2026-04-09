@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@300;400;600&display=swap');
+        
+        .font-heading { font-family: 'Syncopate', sans-serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-body">
+
+    <nav class="flex justify-between items-center p-6 lg:px-12">
+        <div class="text-xl font-bold tracking-tighter uppercase font-heading text-[#46B4B1]">CIVA</div>
+        <div class="hidden md:flex space-x-8 text-xs uppercase tracking-[0.2em] opacity-70">
+            <a href="#" class="hover:text-[#46B4B1] transition">Music</a>
+            <a href="#" class="hover:text-[#46B4B1] transition">Gallery</a>
+            <a href="#" class="hover:text-[#46B4B1] transition">Contact</a>
+        </div>
+    </nav>
+
+    <main class="relative min-h-[80vh] flex flex-col justify-center items-center px-6 text-center">
+        
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#46B4B1] opacity-10 blur-[120px] -z-10"></div>
+
+        <p class="text-[#46B4B1] text-xs tracking-[0.5em] uppercase mb-4 animate-pulse">Official Artist Portfolio</p>
+        
+        <h1 class="font-heading text-5xl md:text-8xl mb-6 tracking-tighter">
+            CIVA <span class="text-transparent border-b border-white" style="-webkit-text-stroke: 1px white;">SOUND</span>
+        </h1>
+
+        <p class="max-w-md text-gray-400 text-sm leading-relaxed mb-10">
+            More than just music. A digital experience designed for the next generation of sound. 
+        </p>
+
+        <div class="flex flex-col md:flex-row gap-4">
+            <button class="bg-[#46B4B1] text-black px-8 py-4 text-xs font-black uppercase tracking-widest hover:bg-white transition-all duration-300">
+                Stream Latest Single
+            </button>
+            <button class="glass-card px-8 py-4 text-xs font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300">
+                View EPK
+            </button>
+        </div>
+
+        <div class="mt-16 w-full max-w-2xl glass-card p-4 rounded-lg flex items-center gap-4">
+            <div class="w-16 h-16 bg-gray-800 rounded flex-shrink-0 animate-pulse"></div>
+            <div class="text-left">
+                <p class="text-xs text-[#46B4B1] font-bold uppercase">Now Trending</p>
+                <p class="text-sm font-semibold">Track Title — Unreleased</p>
+            </div>
+            <div class="ml-auto flex gap-3">
+                <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center">▶</div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

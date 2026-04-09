@@ -23,6 +23,23 @@
     <meta property="twitter:description" content="Premium glass production and installation services for modern architectural projects in Nigeria.">
 
     <link rel="canonical" href="{{ request.build_absolute_uri }}">
+    {% comment %} For images Loading faster  {% endcomment %}
+
+    <link rel="preload" as="image" href="{% static 'images/tinified (2)/stercas2.webp' %}" fetchpriority="high">
+    <link rel="preload" as="image" href="{% static 'images/tinified (2)/Stercas1.webp' %}">
+    <link rel="preload" as="image" href="{% static 'images/tinified (2)/you-glass_BQl7iLq.webp' %}">
+    <link rel="preload" as="image" href="{% static 'images/tinified (2)/glass-glas8_lPgrTsL.jpeg' %}">
+    <link rel="preload" as="image" href="{% static 'images/Elum-houes1_Vv4CyjZ.jpeg' %}">
+    <link rel="preload" as="image" href="{% static 'images/tinified (2)/roog-glass11.jpeg' %}">
+
+    <link rel="preload" as="image" href="{% static 'images&videos/lim-logo-icon.webp' %}">
+
+</div>
+
+    
+    <link rel="preload" href="{% static 'images&videos/lim-logo-icon.webp' %}" as="image" fetchpriority="high">
+
+    {% comment %} For images Loading faster End {% endcomment %}
 
     <script type="application/ld+json">
     {
@@ -150,8 +167,13 @@
                 
                 <div id="aylum-logo-container">
                     <div id="aylum-logo-container">
-                <img src="/static/images&videos/lim-logo-icon.png" alt="Elim" class="w-32 md:w-48 mb-8 animate-pulse-slow">
-            </div>
+                        <img src="{% static 'images&videos/lim-logo-icon.webp' %}" 
+                            alt="Aylum Limited Logo" 
+                            class="w-32 md:w-48 mb-8 animate-pulse-slow"
+                            fetchpriority="high"
+                            loading="eager"
+                        >                    
+                </div>
                 </div>
                 
                 <div class="w-64 h-1.5 bg-gray-900 rounded-full overflow-hidden shadow-inner">
@@ -262,7 +284,7 @@
                 <div class="flex items-center gap-3 group">
                     <a href="https://innocoda.com/" class="relative">
                         <div class="absolute -inset-1 bg-blue-500 rounded-full blur opacity-0 group-hover:opacity-25 transition duration-500"></div>
-                        <img class="relative w-8 h-8 rounded-full border border-white/10 grayscale group-hover:grayscale-0 transition-all duration-300" 
+                        <img rel="preload" as="image" class="relative w-8 h-8 rounded-full border border-white/10 grayscale group-hover:grayscale-0 transition-all duration-300" 
                             src="{% static 'images&videos/InnoCoda-Logo.jpg' %}" 
                             alt="InnoCoda logo">
                     </a>

@@ -292,29 +292,30 @@
 
 <script>
     // Experience Counter
-    const startYear = 2004;
-    document.getElementById('dynamic-years').innerText = new Date().getFullYear() - startYear;
+    {% comment %} const startYear = 2004;
+    document.getElementById('dynamic-years').innerText = new Date().getFullYear() - startYear; {% endcomment %}
 
-    // Simple Background Slider
-// Dynamic Background Slider
+
+const slides = document.querySelectorAll('.hero-slide');
 let current = 0;
 
-// This line automatically counts how many images have the 'hero-slide' class
-const slides = document.querySelectorAll('.hero-slide');
-const totalSlides = slides.length; 
-
 function rotateBackground() {
-    // Hide the current slide
-    document.getElementById(`img-${current}`).classList.replace('active-slide', 'hidden-slide');
-    
-    // Calculate the next slide index correctly based on totalSlides
-    current = (current + 1) % totalSlides;
-    
-    // Show the next slide
-    document.getElementById(`img-${current}`).classList.replace('hidden-slide', 'active-slide');
+    // 1. Hide the one that is currently active
+    const active = document.querySelector('.active-slide');
+    if (active) {
+        active.classList.remove('active-slide');
+        active.classList.add('hidden-slide');
+    }
+
+    // 2. Move to next
+    current = (current + 1) % slides.length;
+
+    // 3. Show the next one
+    slides[current].classList.remove('hidden-slide');
+    slides[current].classList.add('active-slide');
 }
 
-// Rotate every 5 seconds
+// Start the timer
 setInterval(rotateBackground, 5000);
 </script>
 

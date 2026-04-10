@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     preloader.style.display = 'none'; // Simply hide on current page
                 }
-            }, 1200); // Wait for the 1.2s CSS fade transition
+            }, 200); // Wait for the 1.2s CSS fade transition
         }, LOAD_TIME);
     };
 

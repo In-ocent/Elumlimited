@@ -1,123 +1,78 @@
+
 {% load static %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 {% block content %}
-
-<section id="about" class="reveal py-24 bg-black overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
+<section class="bg-[#050505] py-24 px-6 min-h-screen">
+    <div class="max-w-7xl mx-auto">
         
-        <div class="md:w-1/2 space-y-8 animate-fade-in">
-            <div class="space-y-4">
-                <h1>
-                    About Aylum Limited
-                </h1>
-                <h2 class="text-sm tracking-[0.4em] uppercase text-[#3da3a0] font-black">
-                    Established 2004
-                </h2>
-                <h3 class="text-4xl md:text-6xl font-extrabold leading-tight text-white">
-                    Building with <span class="text-emerald-400">Precision</span>.<br>
-                    Delivering with <span class="text-emerald-400">Integrity</span>.
-                </h3>
-            </div>
-
-            <div class="space-y-6">
-                <p class="text-gray-400 text-lg leading-relaxed">
-                    With a legacy spanning over **two decades**, **AYLUM Limited** has established itself as a cornerstone of technical innovation in Nigeria's built environment. Since our incorporation in **January 2004**, we have consistently pushed the boundaries of structural possibility, transforming complex architectural visions into durable, high-value infrastructure for commercial and institutional partners nationwide.
-                </p>
-                <p class="text-gray-400 text-lg leading-relaxed border-l-4 border-[#3da3a0] pl-6 italic">
-                    "Our competitive edge is rooted in the synergy between our elite human capital and a corporate culture that prioritizes technical agility, resource efficiency, and uncompromising safety standards."
-                </p>
-            </div>
-
-            <div class="flex gap-4">
-                <a href="#services" class="px-8 py-3 rounded-lg bg-[#3da3a0] text-white font-bold hover:bg-[#4cbbb7] transition-all">
-                    Our Expertise
-                </a>
-                <a href="{% url 'contact' %}" class="px-8 py-3 rounded-lg border border-gray-700 text-white font-bold hover:bg-white hover:text-black transition-all">
-                    Contact Us
-                </a>
-            </div>
+        <div class="mb-16 border-l-4 border-[#46B4B1] pl-6">
+            <h2 class="text-[#46B4B1] text-xs font-black uppercase tracking-[0.5em] mb-2">Corporate Profile</h2>
+            <h1 class="text-4xl md:text-6xl font-serif font-bold text-white">Integrity & <span class="text-gray-500 text-3xl md:text-5xl italic">Legal Standing</span></h1>
         </div>
 
-        <div class="reveal md:w-1/2 relative">
-            <div class="reveal rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-                 <video 
-                    class="w-full h-[400px] md:h-[600px] object-cover"
-                    autoplay
-                    muted 
-                    loop 
-                    playsinline
-                    poster="{% static 'TVS-NAGAR-RESIDENCE.mp4' %}"
-                >
-                    <source src='https://res.cloudinary.com/duix8w6pl/video/upload/v1771888335/272519_small_jnfi2n.mp4' type="video/mp4">
-                </video>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-[#46B4B1]/10 blur-xl rounded-lg group-hover:bg-[#46B4B1]/20 transition duration-1000"></div>
+                
+                <div class="relative bg-white p-4 shadow-2xl border-8 border-[#1a1a1a] rounded-sm transform lg:-rotate-1 hover:rotate-0 transition-transform duration-500">
+                    <img src="{% static 'images/Certificate.png' %}" 
+                         alt="CAC Certificate of Incorporation" 
+                         class="w-full h-auto grayscale-[20%] hover:grayscale-0 transition-all duration-700"
+                         loading="eager">
+                    
+                    <div class="mt-4 flex justify-between items-center px-2">
+                        <span class="text-[10px] font-mono text-gray-400">RC 1452281</span>
+                        <span class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Certified Official Copy</span>
+                    </div>
+                </div>
             </div>
-            <div class="reveal absolute -bottom-6 -left-6 bg-[#3da3a0] p-8 rounded-2xl shadow-xl hidden md:block">
-                <span class="block text-4xl font-black text-white">20+</span>
-                <span class="text-white/80 uppercase tracking-widest text-xs font-bold">Years of Excellence</span>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section class="reveal py-16 bg-[#0a0a0a] border-y border-white/5">
-    <div class="reveal max-w-7xl mx-auto px-6">
-        <div class="reveal grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div class="reveal">
-                <h4 class="text-[#3da3a0] text-4xl font-black mb-2">2004</h4>
-                <p class="text-gray-500 text-sm uppercase tracking-widest">Year Founded</p>
+            <div class="space-y-10">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-white flex items-center gap-4">
+                        <span class="h-px w-8 bg-[#46B4B1]"></span>
+                        About Aylum Limited
+                    </h3>
+                    <p class="text-gray-400 text-lg leading-relaxed font-light">
+                        Registered in **January 2004** and incorporated as a Limited Liability Company in **November 2017**, AYLUM LIMITED is an Engineering Consultancy and Building Construction firm specializing in turnkey projects.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-[#46B4B1] mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-gray-300 text-sm">Aluminium Fabrication & Installation</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-[#46B4B1] mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-gray-300 text-sm">Glass Curtain Walls & Cladding</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-[#46B4B1] mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-gray-300 text-sm">Civil & Highway Engineering</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-[#46B4B1] mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-gray-300 text-sm">Structural Glazing Engineering</span>
+                    </div>
+                </div>
+
+                <div class="bg-white/5 p-6 border-l-2 border-[#46B4B1] rounded-r-lg">
+                    <p class="text-gray-300 italic text-sm leading-relaxed">
+                        "Our advantage lies within our highly skilled, experienced and well exposed human resources together with our character that is based on our core values."
+                    </p>
+                </div>
+
+                <div class="pt-6">
+                    <a href="{% static 'images/Certificate.png' %}" download class="inline-flex items-center gap-3 bg-[#46B4B1] text-white px-8 py-4 rounded-md font-bold hover:bg-[#3da3a0] transition-all transform hover:scale-105">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        Download Full Company Profile
+                    </a>
+                </div>
             </div>
-            <div  class="reveal">
-                <h4 class="text-[#3da3a0] text-4xl font-black mb-2">Lagos</h4>
-                <p class="text-gray-500 text-sm uppercase tracking-widest">Headquarters</p>
-            </div>
-            <div  class="reveal">
-                <h4 class="text-[#3da3a0] text-4xl font-black mb-2">Access</h4>
-                <p class="text-gray-500 text-sm uppercase tracking-widest">Banking Partner</p>
-            </div>
-            <div class="reveal">
-                <h4 class="text-[#3da3a0] text-4xl font-black mb-2">LLC</h4>
-                <p class="text-gray-500 text-sm uppercase tracking-widest">Corporate Status</p>
-            </div>
+
         </div>
     </div>
 </section>
-<section id="services" class="reveal py-24 bg-black">
-    <div class="reveal max-w-7xl mx-auto px-6 text-center mb-16">
-        <h3 class="text-[#3da3a0] font-bold tracking-widest uppercase mb-4">Precision Manufacturing</h3>
-        <h2 class="text-3xl md:text-5xl font-bold text-white">Advanced Glazing & Aluminium Systems</h2>
-    </div>
-
-    <div class="reveal max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-        
-        <div class="reveal p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-[#3da3a0]/50 transition-all group">
-            <h4 class="text-xl font-bold text-white mb-4 group-hover:text-[#3da3a0]">Architectural Glass Production</h4>
-            <p class="text-gray-500 leading-relaxed">
-                Utilizing state-of-the-art tempering and lamination technology, we produce high-performance safety glass, insulated units, and bespoke decorative glazing tailored for modern facades.
-            </p>
-        </div>
-
-        <div class="reveal p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-[#3da3a0]/50 transition-all group">
-            <h4 class="text-xl font-bold text-white mb-4 group-hover:text-[#3da3a0]">Specialized Aluminium Systems</h4>
-            <p class="text-gray-500 leading-relaxed">
-                We design and fabricate premium aluminium curtain walls, window systems, and structural frames that balance thermal efficiency with sleek, contemporary aesthetics for global markets.
-            </p>
-        </div>
-
-        <div class="reveal p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-[#3da3a0]/50 transition-all group">
-            <h4 class="text-xl font-bold text-white mb-4 group-hover:text-[#3da3a0]">Structural Glazing Engineering</h4>
-            <p class="text-gray-500 leading-relaxed">
-                Our team provides end-to-end structural analysis and turnkey installation for complex glass-metal interfaces, ensuring seismic stability and long-term durability in high-rise developments.
-            </p>
-        </div>
-
-    </div>
-
-    <div class="reveal flex justify-center w-full mt-12">
-        <a href="#service" class="block items-center text-center justify-center bg-[#46B4B1] px-12 py-2 rounded-lg text-white font-bold transition-all hover:scale-105">
-            View All Specialized Services
-        </a>
-    </div>
-</section>
-
 {% endblock %}

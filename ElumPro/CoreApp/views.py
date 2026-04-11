@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 import datetime
 import threading  # New import for speed
 from django.shortcuts import get_object_or_404
@@ -107,17 +108,6 @@ def project_detail(request, slug):
 
 def services_page(request):
     return render(request, "CoreApp/Services.html")
-
-
-def testimonials_view(request):
-    # Fetch only featured testimonials, ordered by newest first
-    testimonials = Testimonial.objects.filter(
-        is_featured=True).order_by('-created_at')
-
-    context = {
-        'testimonials': testimonials,
-    }
-    return render(request, 'CoreApp/testimonias.html', context)
 
 
 def contact_view(request):
@@ -312,3 +302,51 @@ def reschedule_booking(request, token):
         'booking': booking,
         'today': datetime.date.today()
     })
+
+
+def testimonials_view(request):
+    # Standard view for displaying approved testimonials
+    testimonials = Testimonial.objects.filter(
+        is_featured=True).order_by('-created_at')
+
+    context = {
+        'testimonials': testimonials,
+    }
+    return render(request, 'CoreApp/testimonias.html', context)
+
+
+def submit_testimonial(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        position = request.POST.get('position')
+        content = request.POST.get('content')
+
+        # Safe integer conversion for the star rating
+        try:
+            stars = int(request.POST.get('stars', 5))
+        except (ValueError, TypeError):
+            stars = 5
+
+        image = request.FILES.get('image')
+
+        # Validation: Ensure critical data exists
+        if not name or not content:
+            messages.error(
+                request, "Please provide your name and your feedback message.")
+            return redirect(request.META.get('HTTP_REFERER', 'home'))
+
+        # Create the testimonial: Cloudinary handles the 'image' upload automatically
+        Testimonial.objects.create(
+            name=name,
+            position=position if position else "Valued Client",
+            content=content,
+            stars=stars,
+            image=image,
+            is_featured=False  # Hidden until Admin approval
+        )
+
+        messages.success(
+            request, "Success! Your review has been submitted to Aylum Limited for quality review.")
+        return redirect(request.META.get('HTTP_REFERER', 'home'))
+
+    return redirect('home')

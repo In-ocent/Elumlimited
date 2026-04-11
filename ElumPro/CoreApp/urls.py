@@ -18,7 +18,11 @@ urlpatterns = [
     path("projects/", views.ProjectListView.as_view(), name="project_list"),
     path("projects/<slug:slug>/", views.project_detail, name="project_detail"),
     path("service/", views.services_page, name="service"),
+    # This is the page where people VIEW the testimonials
     path('testimonials/', views.testimonials_view, name='testimonials'),
+
+    # This is a "silent" URL just for PROCESSING the form data
+    path('submit-feedback/', views.submit_testimonial, name='submit_testimonial'),
     path('contact/', views.contact_view, name='contact'),
 
 

@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             preloader.classList.add('preloader-hidden');
             setTimeout(() => {
                 preloader.style.display = 'none';
-            }, 500); // Match your CSS transition time
+            }, 1000); // Match your CSS transition time
         }, INITIAL_LOAD);
     }
 

@@ -45,7 +45,7 @@ SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # <--- MUST BE HERE
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -131,13 +131,15 @@ USE_TZ = True
 
 
 # 1. The URL to use when referring to static files
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # 2. Where Django looks for static files in your project folders
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'CoreApp', 'static'),
 ]
+
 
 # 3. Where files are gathered for production (usually a 'staticfiles' folder)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

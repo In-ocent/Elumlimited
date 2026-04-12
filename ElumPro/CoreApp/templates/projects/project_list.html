@@ -6,25 +6,28 @@
     .perspective {
   perspective: 1000px;
 }
-.flip-card {
-  transform-style: preserve-3d;
-  transition: transform 0.7s;
-}
+
 
 .group:hover .flip-card {
   transform: rotateY(180deg);
 }
 
 
+.flip-card {
+    transform-style: preserve-3d;
+    transition: transform 0.7s;
+    will-change: transform; /* Add this */
+}
+
 </style>
 
-<div id="projects" class=" text-center text-white bg-black pt-20">
+<div id="projects" class="reveal text-center text-white bg-black pt-20">
     <h2 class="text-sm tracking-[0.3em] uppercase text-[#46B4B1]">Portfolio</h2>
     <h1 class="mt-4 text-4xl md:text-5xl font-semibold">Aylum Recent Projects</h1>
     <div class="mt-6 w-[150px] h-1 bg-[#46B4B1] mx-auto rounded"></div>
 </div>
 
-<section class=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 py-20 bg-black px-8">
+<section class="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 py-20 bg-black px-8">
 {% for project in projects %}
     {% if forloop.counter|divisibleby:2 %}
         <a href="{% url 'project_detail' project.slug %}" class=" group block -translate-y-1 sm:-translate-y-7 z-[77]">
@@ -45,6 +48,7 @@
                 <img src="{{ project.featured_image.url }}" 
                      alt="{{ project.title }}" class="w-full h-full object-cover"
                      style="pointer-events: none;"
+                     {% if forloop.first %} fetchpriority="high" {% else %} loading="lazy" {% endif %}
                      >
             </div>
 
@@ -55,6 +59,7 @@
                 <img src="{{ project.secondary_image.url }}" 
                      alt="{{ project.title }}" class="w-full h-full object-cover"
                      style="pointer-events: none;"
+                     loading="lazy"
                      >
 
                 <!-- Overlay Background fades slowly -->
@@ -83,7 +88,7 @@
     </a>
 
     {% empty %}
-        <p class=" text-white text-center col-span-full">No projects available yet.</p>
+        <p class="reveal text-white text-center col-span-full">No projects available yet.</p>
     {% endfor %}
 </section>
 
@@ -109,5 +114,13 @@
     el.style.transform = "translateY(20px)";
     observer.observe(el);
   });
+
+
+  if (entry.isIntersecting) {
+    entry.target.style.opacity = "1";
+    entry.target.style.transform = "translateY(0)";
+    entry.target.style.transition = "all 0.6s ease-out";
+    observer.unobserve(entry.target); // Add this line
+}
 </script>
 {% endblock %}

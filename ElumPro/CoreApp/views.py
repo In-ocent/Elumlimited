@@ -350,3 +350,14 @@ def submit_testimonial(request):
         return redirect(request.META.get('HTTP_REFERER', 'home'))
 
     return redirect('home')
+
+
+def legal_view(request, policy_type):
+    # Convert slug like 'terms-of-service' to a nice Title
+    title = policy_type.replace('-', ' ').title()
+
+    context = {
+        'policy_type': policy_type,
+        'title': title,
+    }
+    return render(request, 'legal.html', context)

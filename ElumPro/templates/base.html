@@ -74,6 +74,7 @@
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
     {% block style %}
@@ -211,12 +212,12 @@
 
 
 <footer class="bg-[#050505] text-white pt-20 pb-10 border-t border-white/5 relative overflow-hidden">
+<footer class="bg-[#050505] text-white pt-20 pb-10 border-t border-white/5 relative overflow-hidden">
     <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-[#46B4B1]/5 blur-[120px] rounded-full pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-8 relative z-10">
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-20">
-            
             <div class="space-y-6">
                 <div class="flex items-center gap-3">
                     <div id="logo-wrapper" class="scale-75 origin-left">
@@ -275,7 +276,7 @@
                     </li>
                     <li class="flex items-center gap-3">
                         <i class="fas fa-envelope text-[#46B4B1] shrink-0"></i>
-                        <a href="mailto:info@aylumlimited.com" class="hover:text-white transition-colors">info@aylumlimited.com</a>
+                        <a href="mailto:info@aylumlimited.com" class="hover:text-white transition-colors">aao@aylumlimited.com</a>
                     </li>
                 </ul>
             </div>
@@ -288,11 +289,16 @@
             </a>
         </div>
 
+        <div class="flex flex-wrap gap-8 opacity-40 hover:opacity-100 transition-opacity">
+            <a href="{% url 'legal_page' 'terms' %}" class="text-[9px] uppercase tracking-widest">Terms</a>
+            <a href="{% url 'legal_page' 'privacy' %}" class="text-[9px] uppercase tracking-widest">Privacy</a>
+            <a href="{% url 'legal_page' 'compliance' %}" class="text-[9px] uppercase tracking-widest">HSE Compliance</a>
+        </div>
+
         <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-            
             <div class="text-[10px] text-gray-600 uppercase tracking-widest text-center md:text-left leading-relaxed">
                 <p>&copy; 2026 AYLUM Limited. All rights reserved.</p>
-                <p class="mt-1">Defining Architectural Luxury worldwide.</p>
+                <p class="mt-1 italic">Defining Architectural Luxury worldwide.</p>
             </div>
 
             <div class="flex items-center gap-3 group relative opacity-60 hover:opacity-100 transition-all duration-700">
@@ -309,7 +315,6 @@
                          alt="InnoCoda logo">
                 </a>
             </div>
-
         </div>
     </div>
 </footer>

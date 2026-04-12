@@ -18,13 +18,13 @@
 
 </style>
 
-<div id="projects" class="reveal text-center text-white bg-black pt-20">
+<div id="projects" class=" text-center text-white bg-black pt-20">
     <h2 class="text-sm tracking-[0.3em] uppercase text-[#46B4B1]">Portfolio</h2>
-    <h1 class="mt-4 text-4xl md:text-5xl font-semibold">Our Recent Projects</h1>
+    <h1 class="mt-4 text-4xl md:text-5xl font-semibold">Aylum Recent Projects</h1>
     <div class="mt-6 w-[150px] h-1 bg-[#46B4B1] mx-auto rounded"></div>
 </div>
 
-<section class="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 py-20 bg-black px-8">
+<section class=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 py-20 bg-black px-8">
 {% for project in projects %}
     {% if forloop.counter|divisibleby:2 %}
         <a href="{% url 'project_detail' project.slug %}" class=" group block -translate-y-1 sm:-translate-y-7 z-[77]">
@@ -83,7 +83,7 @@
     </a>
 
     {% empty %}
-        <p class="reveal text-white text-center col-span-full">No projects available yet.</p>
+        <p class=" text-white text-center col-span-full">No projects available yet.</p>
     {% endfor %}
 </section>
 

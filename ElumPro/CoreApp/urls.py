@@ -18,6 +18,7 @@ urlpatterns = [
     path("projects/", views.ProjectListView.as_view(), name="project_list"),
     path("projects/<slug:slug>/", views.project_detail, name="project_detail"),
     path("service/", views.services_page, name="service"),
+    path('legal/<slug:policy_type>/', views.legal_view, name='legal_page'),
     # This is the page where people VIEW the testimonials
     path('testimonials/', views.testimonials_view, name='testimonials'),
 

@@ -91,36 +91,28 @@
         <p class="reveal text-white text-center col-span-full">No projects available yet.</p>
     {% endfor %}
 </section>
-
 <script>
   const observerOptions = {
-    threshold: 0.1
+    threshold: 0.05 // Lowered for mobile screens
   };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Add a class to make it visible, or just set opacity
         entry.target.style.opacity = "1";
         entry.target.style.transform = "translateY(0)";
-        entry.target.style.transition = "all 0.8s ease-out";
+        // stop observing once it's visible to save mobile CPU
+        observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
   document.querySelectorAll('.reveal').forEach((el) => {
-    // Set initial state via JS so they don't stay hidden if JS fails
+    // Basic setup
     el.style.opacity = "0";
     el.style.transform = "translateY(20px)";
+    el.style.transition = "all 0.6s ease-out";
     observer.observe(el);
   });
-
-
-  if (entry.isIntersecting) {
-    entry.target.style.opacity = "1";
-    entry.target.style.transform = "translateY(0)";
-    entry.target.style.transition = "all 0.6s ease-out";
-    observer.unobserve(entry.target); // Add this line
-}
 </script>
 {% endblock %}

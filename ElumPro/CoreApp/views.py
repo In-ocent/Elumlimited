@@ -267,8 +267,8 @@ def send_booking_confirmation(booking):
     msg = EmailMultiAlternatives(
         subject,
         text_content,
-        'office@elumpro.com',  # Replace with your verified sender email
-        recipient_list
+        'aao@aylumlimited.com',  # Replace with your verified sender email
+        recipient_list,
     )
     msg.attach_alternative(html_content, "text/html")
     msg.send()

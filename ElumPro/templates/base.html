@@ -4,9 +4,12 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}AYLUM Limited | International Architectural Glass & Aluminium Systems{% endblock %}</title>
-    <meta name="description" content="Global providers of premium architectural glass production and high-performance aluminium systems. From Nigeria to the world, delivering precision glazing and turnkey structural solutions.">
-    <meta name="keywords" content="International glass production, architectural glazing export, worldwide aluminium systems, structural glass cladding Africa, global turnkey construction">
+    
+    <title>{% block title %}AYLUM Limited | Luxury Glass & Aluminium Systems Lagos{% endblock %}</title>
+
+    <meta name="description" content="Premium architectural glass production & installation in Lagos. Specializing in frameless partitions, structural glazing, and luxury shower enclosures for Ikoyi, Lekki & VI. Get a precision engineering quote today.">
+
+    <meta name="keywords" content="Glass and Aluminium company Lagos, Structural Glazing Lekki, Frameless Glass Partitioning Ikoyi, Shower Enclosure Price Lagos, Office Partitioning Victoria Island, Aylum Limited, Aluminum Windows Nigeria">
 
     <meta name="title" content="AYLUM Limited | Architectural Glass Production & Installation">
     <meta name="description" content="AYLUM Limited specializes in premium glass production, tempered glass, and architectural glazing solutions in Lagos & Abuja. From frameless glass to structural cladding, we deliver precision. Book an inspection today.">
@@ -40,36 +43,71 @@
     <link rel="preload" href="{% static 'images&videos/lim-logo-icon.webp' %}" as="image" fetchpriority="high">
 
     {% comment %} For images Loading faster End {% endcomment %}
-
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ManufacturingBusiness",
-      "name": "AYLUM Limited",
-      "alternateName": "Aylum Glass & Aluminium",
-      "image": "{% static 'images/Logo-design.JPG' %}",
-      "description": "Specialists in architectural glass production, tempered glass, and aluminum glazing systems.",
-      "url": "https://aylumlimited.com",
-      "telephone": "+2348080337605",
-      "areaServed":["NG", "GH", "UK", "US", "AE", "GB", "US", "ZA", "QA", "SA"]
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "3, Anina Street, Agiliti, Mile 12",
-        "addressLocality": "Lagos",
-        "addressRegion": "Lagos State",
-        "addressCountry": "NG"
+{
+  "@context": "https://schema.org",
+  "@type": "ManufacturingBusiness",
+  "name": "AYLUM Limited",
+  "alternateName": "Aylum Glass & Aluminium",
+  "image": "{% static 'images/Logo-design.JPG' %}",
+  "description": "Premium architectural glass production and high-performance aluminum systems. Specialists in structural glazing, curtain walls, and frameless partitions in Lagos and Abuja.",
+  "url": "https://aylumlimited.com",
+  "telephone": "+2348080337605",
+  "priceRange": "$$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "3, Anina Street, Agiliti, Mile 12",
+    "addressLocality": "Lagos",
+    "addressRegion": "Lagos State",
+    "addressCountry": "NG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 6.6111,
+    "longitude": 3.3917
+  },
+  "areaServed": ["Lagos", "Abuja", "Port Harcourt", "Lekki", "Ikoyi", "Victoria Island"],
+  "knowsAbout": [
+    "Structural Glazing",
+    "Curtain Wall Engineering",
+    "Frameless Glass Partitions",
+    "Architectural Aluminum Systems",
+    "Overhead Glazing & Skylights",
+    "Heat-Soaked Laminated Glass"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Aylum Core Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Commercial Curtain Wall Installation"
+        }
       },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Glass Services",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Glass Production" }},
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tempered Glass Installation" }},
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Frameless Glazing" }}
-        ]
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Luxury Frameless Shower Enclosures"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Bespoke Architectural Mirrors"
+        }
       }
-    }
-    </script>
+    ]
+  }
+}
+</script>
+
+    {% comment %} <script type="application/ld+json">
+       
+    </script> {% endcomment %}
 
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -276,7 +314,7 @@
                     </li>
                     <li class="flex items-center gap-3">
                         <i class="fas fa-envelope text-[#46B4B1] shrink-0"></i>
-                        <a href="mailto:info@aylumlimited.com" class="hover:text-white transition-colors">aao@aylumlimited.com</a>
+                        <a href="mailto:aao@aylumlimited.com" class="hover:text-white transition-colors">aao@aylumlimited.com</a>
                     </li>
                 </ul>
             </div>

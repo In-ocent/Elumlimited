@@ -27,7 +27,7 @@
     <div class="mt-6 w-[150px] h-1 bg-[#46B4B1] mx-auto rounded"></div>
 </div>
 
-<section class="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 py-20 bg-black px-8">
+<section class=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 py-20 bg-black px-8">
 {% for project in projects %}
     {% if forloop.counter|divisibleby:2 %}
         <a href="{% url 'project_detail' project.slug %}" class=" group block -translate-y-1 sm:-translate-y-7 z-[77]">

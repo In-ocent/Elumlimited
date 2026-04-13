@@ -17,16 +17,17 @@ DEBUG = env("DEBUG")
 ALLOWED_HOSTS = [
     'aylumlimited.com',
     'www.aylumlimited.com',
-    'https://elumlimited.onrender.com',
-    'localhost', '127.0.0.1']
+    'elumlimited.onrender.com',  # Remove the https://
+    'localhost',
+    '127.0.0.1'
+]
 
 # Application definition
 
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',  # Add this at the VERY top
-    'cloudinary_storage',
     'django.contrib.sites',
-    'cloudinary',
+
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -34,6 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
 
     # Manualy added
     "CoreApp",
@@ -172,3 +175,4 @@ DEFAULT_FROM_EMAIL = f'Aylum Limited <{EMAIL_HOST_USER}>'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+WHITENOISE_KEEP_ONLY_HASHED_FILES = True

@@ -1,3 +1,4 @@
+from django.db import connection
 from django.shortcuts import redirect
 import datetime
 import threading  # New import for speed
@@ -233,6 +234,8 @@ def book_session(request):
                 'status': 'error',
                 'message': f'Database error: {str(e)}'
             })
+        finally:
+            connection.close()
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request'})
 # Helper function to handle email in the background safely
@@ -246,28 +249,60 @@ def send_safe_email(booking):
 # 3. The email trigger
 
 
+# def send_booking_confirmation(booking):
+#     subject = f"Confirmed: Consultation with Aylumlimited"
+#     recipient_list = [booking.email]
+
+#     # This context passes data to your HTML email template
+#     context = {
+#         'name': booking.full_name,
+#         'date': booking.booking_date,
+#         'time': booking.booking_slot,
+#         'service': booking.service_type.name,
+#         'token': booking.reschedule_token,
+#         'meeting_link': 'https://meet.zoho.com/ocwp-tcg-sdr'
+#     }
+
+#     # Render the HTML version of the email
+#     html_content = render_to_string('emails/booking_confirmed.html', context)
+#     text_content = f"Hi {booking.full_name}, your {booking.service_type.name} session is confirmed for {booking.booking_date}."
+
+#     msg = EmailMultiAlternatives(
+#         subject,
+#         text_content,
+#         'aao@aylumlimited.com',  # Replace with your verified sender email
+#         recipient_list,
+#     )
+#     msg.attach_alternative(html_content, "text/html")
+#     msg.send()
+
 def send_booking_confirmation(booking):
-    subject = f"Confirmed: Consultation with Aylumlimited"
+    subject = "Confirmed: Consultation with Aylum Limited"  # Space added
     recipient_list = [booking.email]
 
-    # This context passes data to your HTML email template
     context = {
         'name': booking.full_name,
         'date': booking.booking_date,
         'time': booking.booking_slot,
         'service': booking.service_type.name,
         'token': booking.reschedule_token,
-        'meeting_link': 'https://meet.google.com/your-default-link'
+        # Use your domain redirect here for a cleaner look
+        'meeting_link': 'https://aylumlimited.com/join/'
     }
 
-    # Render the HTML version of the email
+    # Render HTML
     html_content = render_to_string('emails/booking_confirmed.html', context)
-    text_content = f"Hi {booking.full_name}, your {booking.service_type.name} session is confirmed for {booking.booking_date}."
+    # Plain text version for safety
+    text_content = (
+        f"Hi {booking.full_name}, your {booking.service_type.name} session is confirmed "
+        f"for {booking.booking_date} at {booking.booking_slot}. "
+        f"Join here: https://aylumlimited.com/join/"
+    )
 
     msg = EmailMultiAlternatives(
         subject,
         text_content,
-        'aao@aylumlimited.com',  # Replace with your verified sender email
+        'aao@aylumlimited.com',
         recipient_list,
     )
     msg.attach_alternative(html_content, "text/html")
@@ -302,6 +337,13 @@ def reschedule_booking(request, token):
         'booking': booking,
         'today': datetime.date.today()
     })
+
+
+# Add this view to handle the clean redirect
+
+def meeting_redirect(request):
+    """Redirects clients directly to the Zoho Meeting room."""
+    return redirect('https://meet.zoho.com/ocwp-tcg-sdr')
 
 
 def testimonials_view(request):

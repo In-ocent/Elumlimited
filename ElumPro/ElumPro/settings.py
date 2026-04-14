@@ -6,6 +6,7 @@ import environ
 # 1. Setup environment variables
 env = environ.Env(DEBUG=(bool, False))
 
+
 # 2. Define BASE_DIR ONCE (pointing to the folder with manage.py)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -13,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 SECRET_KEY = env("SECRET_KEY")
-DEBUG = env("DEBUG")
+DEBUG = True  # env("DEBUG")
 ALLOWED_HOSTS = [
     'aylumlimited.com',
     'www.aylumlimited.com',

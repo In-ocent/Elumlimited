@@ -45,4 +45,6 @@ urlpatterns = [
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
     path("robots.txt", robots_txt),
+
+    path('join/', views.meeting_redirect, name='meeting_join'),
 ]
